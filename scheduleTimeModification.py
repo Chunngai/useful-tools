@@ -250,6 +250,7 @@ def get_task_info(task_info_list_):
     return task_index, start_time, end_time
 """
 
+
 def get_modified_time(start_time_, end_time_):
     # match input and return the result
     def get_rst(prompt, t_):
@@ -583,8 +584,11 @@ def modify_time():
 
     # modify schedule
     new_task_info_list = modify_remaining(task_index, task_info_list, delta_time, modified_start_time, modified_end_time)
+    print()
 
     # copy the new list to the clipboard
+    print("modified schedule:")
+    print('-' * 30)
     copy_to_clipboard(new_task_info_list)
 
 

@@ -92,20 +92,29 @@ def generate_task_list(data_):
     return task_info_list
 
 
+def input_index(prompt_, list_):
+    index_input = input(prompt_)
+
+    while True:
+        if not str(index_input).isdigit():
+            index_input = input("invalid index! input again >>> ")
+            continue
+        if int(index_input) not in range(1, len(list_) + 1):
+            index_input = input("invalid index! input again >>> ")
+            continue
+        else:
+            break
+
+    return int(index_input)
+
+
 def get_task_info(task_info_list_, t):
     # print the schedule with indices
     print_task_info_list(task_info_list_)
     print()
 
     # get the index of the task whose info is to be modified
-    task_index_input = input("input the index of the task from which the time is to be modified >>> ")
-    # check if the input is digits
-    while not str(task_index_input).isdigit():
-        task_index_input = input("invalid index! input again >>> ")
-    # check if the input is in a valid range
-    while int(task_index_input) not in range(1, len(task_info_list_) + 1):
-        task_index_input = int(input("invalid index! input again >>> "))
-    task_index = int(task_index_input)
+    task_index = input_index("input the index of the task from which the time is to be modified >>> ", task_info_list_)
 
     # get start time, end time, task names
     task = task_info_list_[task_index - 1]
@@ -118,7 +127,7 @@ def get_task_info(task_info_list_, t):
 
     if t == 't':
         print("task_index: {}, start_time: {}, end_time: {}".format(task_index, start_time, end_time))
-        return task_index, start_time, end_time
+        return task_index, int(start_time), int(end_time)
     else:
         print("task_index: {}, task_name_list: {}".format(task_index, task_name_list))
         return task_index, task_name_list

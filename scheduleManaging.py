@@ -12,7 +12,8 @@ def get_task():
     task_num = input("1. create a schedule\n2. modify a schedule\n3. modify a task name\nwhat to do? >>> ")
     # input should be '1', '2' and '3'
     while task_num not in ['1', '2', '3'] or not task_num.isdigit():
-        task_num = input("input 1, 2 or 3 only! >>> ")
+        task_num = input("\rinput 1, 2 or 3 only! >>> ")
+    print()
 
     # str -> int
     task_num = int(task_num)
