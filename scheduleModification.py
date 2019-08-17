@@ -30,7 +30,7 @@ def generate_task_list(data_):
     for i in range(len(input_list)):
         rst = pat.search(input_list[i])
 
-        # get start time, end time, task name
+        # get start time, end time, duration, task name
         if rst.group(2):
             start_time = ''
             end_time = ''
@@ -40,10 +40,11 @@ def generate_task_list(data_):
                 end_time = int(rst.group(4))
             if rst.group(3) and not rst.group(4):  # like 2110-
                 end_time = -1
+            duration = get_delta_time(end_time, start_time)
             task_name_list = [rst.group(5)]
-            task_info_list.append([start_time, end_time, task_name_list])
+            task_info_list.append([start_time, end_time, duration, task_name_list])
         else:
-            task_info_list[len(task_info_list) - 1][2].append(rst.group(5))
+            task_info_list[len(task_info_list) - 1][3].append(rst.group(5))
 
     return task_info_list
 
@@ -207,14 +208,14 @@ def print_task_info_list(task_info_list_):
         end_time = str(task[1]).zfill(4)
         if task[1] == -1:
             end_time = ''
-        task_name_list = task[2]
+        task_name_list = task[3]
 
         # print (i) hhmm-(hhmm) task_name(the first one)
         print("({}) {}-{} {}".format(i + 1, start_time, end_time, task_name_list[0]))
 
         # print other tasks(if there are)
-        for j in range(1, len(task[2])):
-            print(' ' * (12 + len(str(i))), task[2][j])
+        for j in range(1, len(task_name_list)):
+            print(' ' * (12 + len(str(i))), task_name_list[j])
 
 
 def get_task_info(task_info_list_):
@@ -242,7 +243,7 @@ def get_task_info(task_info_list_):
 
 def get_modified_time(start_time_, end_time_):
     # match input and return the result
-    def get_rst(prompt):
+    def get_rst(prompt, t_):
         pat_1 = re.compile(r"^\d{4}$")  # forms like 0800
         pat_2 = re.compile(r"^([+\-]?)(\d+)\s?(min?|h?)$")  # forms like +30 min, -2h  # !!!!!!!!!!!!!!!!?????????
         pat_3 = re.compile(r"^/$")
@@ -251,11 +252,16 @@ def get_modified_time(start_time_, end_time_):
         rst_1_ = pat_1.search(input_start)
         rst_2_ = pat_2.search(input_start)
         rst_3_ = pat_3.search(input_start)
+        if t_ != 'd':
+            rst_3_ = None
+
         while not (rst_1_ or rst_2_ or rst_3_):
             input_start = input("invalid input! input again >>> ")
             rst_1_ = pat_1.search(input_start)
             rst_2_ = pat_2.search(input_start)
             rst_3_ = pat_3.search(input_start)
+            if t_ != 'd':
+                rst_3_ = None
 
         # return the number and the result of the pattern which matches the str
         rst_list = [rst_1_, rst_2_, rst_3_]
@@ -289,8 +295,7 @@ def get_modified_time(start_time_, end_time_):
      valid input i): hhmm. such as 0830
      valid input ii): ([+\-]?)(\d+)\s?(min|h?). such as +30min, -2 h, 30
      * 30 -> 30min, 20 -> 20min
-     valid input iii): /
-     >>> """)
+     >>> """, 's')
     if i == 0:  # the input is something like 0800
         modified_start_time = int(rst.group(0))
     else:  # the input is something like +2 h
@@ -300,10 +305,11 @@ def get_modified_time(start_time_, end_time_):
     input_end = input("modify duration or end time >>> ")
     while input_end not in ['d', 'e']:
         input_end = input("invalid input! input again >>> ")
+    t = input_end
 
     if input_end == 'd':
         # modify the end time by modifying the duration
-        i, rst = get_rst("How to modify the duration? >>> ")
+        i, rst = get_rst("How to modify the duration? >>> ", t)
 
         # calculate duration
         duration = get_delta_time(end_time_, start_time_)
@@ -334,8 +340,7 @@ def get_modified_time(start_time_, end_time_):
      valid input i): hhmm. such as 0830
      valid input ii): ([+\-]?)(\d+)\s?(min|h?). such as +30min, -2 h, 30
      * 30 -> 30min, 20 -> 20min
-     valid input iii): /
-     >>> """)
+     >>> """, t)
         if i == 0:  # the input is something like 0800
             modified_end_time = int(rst.group(0))
 
@@ -531,13 +536,13 @@ def copy_to_clipboard(new_task_info_list_):
         end_time = str(task[1]).zfill(4)
         if task[1] == -1:
             end_time = ''
-        task_name_list = task[2]
+        task_name_list = task[3]
 
         # concatenation
         new_task_str += ("{}-{} {}\n".format(start_time, end_time, task_name_list[0]))
 
-        for j in range(1, len(task[2])):
-            new_task_str += (' ' * (8 + len(str(i))) + task[2][j] + '\n')
+        for j in range(1, len(task_name_list)):
+            new_task_str += (' ' * (8 + len(str(i))) + task_name_list[j] + '\n')
 
 
 def modify_schedule_():
