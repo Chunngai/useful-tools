@@ -2,10 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import re
-import math
-import pyperclip
+
+from scheduleCommonFunc import print_task_info_list
+from scheduleCommonFunc import copy_to_clipboard
+from scheduleCommonFunc import input_
+from scheduleCommonFunc import generate_task_list
+from scheduleCommonFunc import get_task_info
+from scheduleCommonFunc import add_time
+from scheduleCommonFunc import minus_time
+from scheduleCommonFunc import get_delta_time
+from scheduleCommonFunc import compare_time
 
 
+"""
 def input_():
     print("input data:")
 
@@ -46,9 +55,9 @@ def generate_task_list(data_):
         else:
             task_info_list[len(task_info_list) - 1][3].append(rst.group(5))
 
-    return task_info_list
+    return task_info_list"""
 
-
+"""
 def get_hour(time_):
     return int(time_ / 100)
 
@@ -197,8 +206,8 @@ def minus_time(original_time_, delta_min_):
     time_minus = modified_hour_ + modified_min_
 
     return time_minus
-
-
+"""
+"""
 def print_task_info_list(task_info_list_):
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]  # for every task
@@ -215,9 +224,9 @@ def print_task_info_list(task_info_list_):
 
         # print other tasks(if there are)
         for j in range(1, len(task_name_list)):
-            print(' ' * (12 + len(str(i))), task_name_list[j])
+            print(' ' * (12 + len(str(i))), task_name_list[j])"""
 
-
+"""
 def get_task_info(task_info_list_):
     # print the schedule with indices
     print_task_info_list(task_info_list_)
@@ -239,7 +248,7 @@ def get_task_info(task_info_list_):
 
     print("task_index: {}, start_time: {}, end_time: {}".format(task_index, start_time, end_time))
     return task_index, start_time, end_time
-
+"""
 
 def get_modified_time(start_time_, end_time_):
     # match input and return the result
@@ -362,7 +371,7 @@ def get_modified_time(start_time_, end_time_):
     print("modified_start_time: {}, modified_end_time: {}\n".format(modified_start_time, modified_end_time))
     return modified_start_time, modified_end_time
 
-
+"""
 def compare_time(modified_time_, original_time_):
     # example a): modified_time_: 0820, original_time_: 0810
     # example b): modified_time_: 0820, original_time_: 0730
@@ -395,8 +404,9 @@ def compare_time(modified_time_, original_time_):
             return 1
         else:
             return 0
+"""
 
-
+"""
 def get_delta_time(modified_time_, original_time_):
     # example a): modified_time_: 0820, original_time_: 0810
     # example b): modified_time_: 0820, original_time_: 0730
@@ -482,6 +492,7 @@ def get_delta_time(modified_time_, original_time_):
         delta_min_ *= -1
 
     return delta_min_
+"""
 
 
 def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_time_, modified_end_time_):
@@ -525,7 +536,7 @@ def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_t
 
     return new_task_info_list
 
-
+"""
 def copy_to_clipboard(new_task_info_list_):
     new_task_str = ''
     for i in range(len(new_task_info_list_)):
@@ -544,16 +555,21 @@ def copy_to_clipboard(new_task_info_list_):
         for j in range(1, len(task_name_list)):
             new_task_str += (' ' * (8 + len(str(i))) + task_name_list[j] + '\n')
 
+    # copy the created schedule to the clipboard
+    pyperclip.copy(new_task_str)
+    print(new_task_str)
+"""
 
-def modify_schedule():
+
+def modify_time():
     # receive data
     data = input_()
 
     # make data into a nested list
-    task_list = generate_task_list(data)
+    task_info_list = generate_task_list(data)
 
     # ask how to modify
-    task_index, start_time, end_time = get_task_info(task_list)
+    task_index, start_time, end_time = get_task_info(task_info_list, 't')
     modified_start_time, modified_end_time = get_modified_time(start_time, end_time)
 
     while end_time != -1 and compare_time(modified_end_time, modified_start_time) == 0:
@@ -566,11 +582,11 @@ def modify_schedule():
         delta_time = 0
 
     # modify schedule
-    new_task_list = modify_remaining(task_index, task_list, delta_time, modified_start_time, modified_end_time)
+    new_task_info_list = modify_remaining(task_index, task_info_list, delta_time, modified_start_time, modified_end_time)
 
     # copy the new list to the clipboard
-    copy_to_clipboard(new_task_list)
+    copy_to_clipboard(new_task_info_list)
 
 
 if __name__ == '__main__':
-    modify_schedule()
+    modify_time()

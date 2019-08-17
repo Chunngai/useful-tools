@@ -3,15 +3,16 @@
 
 import re
 
-import pyperclip
 
-from schedule_modification_1 import add_time
-from schedule_modification_1 import get_delta_time
+from scheduleCommonFunc import add_time
+from scheduleCommonFunc import get_delta_time
+from scheduleCommonFunc import print_task_info_list
+from scheduleCommonFunc import copy_to_clipboard
 
 
 def create_schedule():
     print("Creating schedule ...\n")
-    schedule_str = ''  # store the schedule
+    # schedule_str = ''  # store the schedule
     # [start time, end time, duration, [task name 1, task name 2...]]
     task_info_list = []  # store task info. time info is int and the name is str.
     end_time = ''  # store the end time of the task which is input in the last loop
@@ -22,7 +23,7 @@ def create_schedule():
     pat_2 = re.compile(r"^[012]\d[012345]\d$")
     pat_3 = re.compile(r"^finished$")
     pat_4 = re.compile(r"^redo$")
-    pat_5 = re.compile(r"")
+    pat_5 = re.compile(r"^$")
 
     while True:
         # get the start time
@@ -129,7 +130,7 @@ def create_schedule():
 
         # print the whole schedule
         print('.' * 50)
-        for i in range(len(task_info_list)):
+        """for i in range(len(task_info_list)):
             task = task_info_list[i]  # for every task
 
             # get start time, end time, task name
@@ -144,12 +145,13 @@ def create_schedule():
 
             # print other tasks(if there are)
             for j in range(1, len(task_name_list)):
-                print(' ' * (12 + len(str(i))), task[2][j])
+                print(' ' * (12 + len(str(i))), task_name_list[j])"""
+        print_task_info_list(task_info_list)
         print('.' * 50)
 
         print()
 
-    for i in range(len(task_info_list)):
+    """for i in range(len(task_info_list)):
         task = task_info_list[i]
 
         # get start time, end time, task names
@@ -162,11 +164,12 @@ def create_schedule():
         schedule_str += ("{}-{} {}\n".format(start_time, end_time, task_name_list[0]))
 
         for j in range(1, len(task_name_list)):
-            schedule_str += (' ' * (8 + len(str(i))) + task_name_list[j] + '\n')
+            schedule_str += (' ' * (9 + len(str(i))) + task_name_list[j] + '\n')
 
     # copy the created schedule to the clipboard
     pyperclip.copy(schedule_str)
-    print(schedule_str)
+    print(schedule_str)"""
+    copy_to_clipboard(task_info_list)
 
 
 if __name__ == '__main__':
