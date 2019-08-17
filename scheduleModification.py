@@ -484,7 +484,7 @@ def get_delta_time(modified_time_, original_time_):
     return delta_min_
 
 
-def modify_schedule(task_index_, task_info_list_, delta_time_, modified_start_time_, modified_end_time_):
+def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_time_, modified_end_time_):
     new_task_info_list = task_info_list_
 
     # add modified start time and end time to the list
@@ -545,7 +545,7 @@ def copy_to_clipboard(new_task_info_list_):
             new_task_str += (' ' * (8 + len(str(i))) + task_name_list[j] + '\n')
 
 
-def modify_schedule_():
+def modify_schedule():
     # receive data
     data = input_()
 
@@ -566,11 +566,11 @@ def modify_schedule_():
         delta_time = 0
 
     # modify schedule
-    new_task_list = modify_schedule(task_index, task_list, delta_time, modified_start_time, modified_end_time)
+    new_task_list = modify_remaining(task_index, task_list, delta_time, modified_start_time, modified_end_time)
 
     # copy the new list to the clipboard
     copy_to_clipboard(new_task_list)
 
 
 if __name__ == '__main__':
-    modify_schedule_()
+    modify_schedule()
