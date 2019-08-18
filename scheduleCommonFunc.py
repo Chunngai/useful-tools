@@ -1,4 +1,4 @@
-#!usr/bin/python env
+#!usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import re
@@ -19,7 +19,7 @@ def print_task_info_list(task_info_list_):
         task_name_list = task[3]
 
         # print (i) hhmm-(hhmm) task_name(the first one)
-        print("({}) {}-{} {}".format(i + 1, start_time, end_time, task_name_list[0]))
+        print("({}){} {}-{} {}".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, task_name_list[0]))
 
         # print other tasks(if there are)
         for j in range(1, len(task_name_list)):

@@ -1,4 +1,4 @@
-#!usr/bin/python env
+#!usr/bin/env python
 # -*- coding: utf-8 -*-
 
 
@@ -13,7 +13,7 @@ from scheduleCommonFunc import input_index
 def name_modify(task_info_list_, task_index_, task_name_list_):
     # print task names of the specified index
     for i in range(len(task_name_list_)):
-        print("({}) {}".format(i + 1, task_name_list_[i]))
+        print("({}){} {}".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', task_name_list_[i]))
 
     # get the index of the task name to be modified
     name_index = input_index("input the index of the task name to be modified >>> ", task_name_list_)
