@@ -46,7 +46,7 @@ def create_schedule():
                     task_info_list.pop()
 
                     pat = re.compile(r"Anything")
-                    if pat.search(task_info_list[task_num - 1][3][0]):
+                    if task_num > 0 and pat.search(task_info_list[task_num - 1][3][0]):
                         task_num -= 1
                         end_time = task_info_list[task_num - 1][1]
                         task_info_list.pop()
