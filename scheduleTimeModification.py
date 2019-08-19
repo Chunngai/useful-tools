@@ -1,5 +1,5 @@
-#!usr/bin/python
-# -*- coding: utf-8 -*-env
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import re
 
@@ -295,9 +295,12 @@ def get_modified_time(start_time_, end_time_):
 
         return modified_time_
 
-    if end_time_ == -1:
-        # if a new duration or an end time with the hhmm form is given, flag = 1 and the task will get an end time
+    """if end_time_ == -1:
         global flag
+        flag = 0"""
+    flag = ''
+    # if a new duration or an end time with the hhmm form is given, flag = 1 and the task will get an end time
+    if end_time_ == -1:
         flag = 0
 
     # modify the start time
@@ -335,11 +338,8 @@ def get_modified_time(start_time_, end_time_):
             else:
                 modified_duration = delta_time
 
-                try:
-                    # a duration is given to a task which originally has not an end time
-                    flag = 1
-                except:
-                    pass
+                # a duration is given to a task which originally has not an end time
+                flag = 1
         else:  # the input is /
             modified_duration = duration
 
@@ -354,20 +354,14 @@ def get_modified_time(start_time_, end_time_):
         if i == 0:  # the input is something like 0800
             modified_end_time = int(rst.group(0))
 
-            try:
-                # an end time is given to a task which originally has not one
-                flag = 1
-            except:
-                pass
+            # an end time is given to a task which originally has not one
+            flag = 1
         else:  # the input is something like +30 min
             modified_end_time = get_modified_time_inner(rst, end_time_)
 
-    try:
-        if flag == 0:
-            # the task originally has not an end time and a duration or an end time is not given
-            modified_end_time = -1
-    except:
-        pass
+    if flag == 0:
+        # the task originally has not an end time and a duration or an end time is not given
+        modified_end_time = -1
 
     print("modified_start_time: {}, modified_end_time: {}\n".format(modified_start_time, modified_end_time))
     return modified_start_time, modified_end_time
