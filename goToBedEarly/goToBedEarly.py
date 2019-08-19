@@ -80,6 +80,7 @@ def go_to_bed_early_win(count_):
         ten_min.bind("<Return>", func=lambda event: ten_min.select())
         ten_min.grid(row=0, column=0)
     else:
+        # leave only one button. the button clicked, a win of warning message will pop-up
         button_warning = tk.Button(frame, text="OK", command=lambda: tk.messagebox.showwarning(title="SLEEP NOW!",
                                                                                                message="SLEEP NOW!"))
         button_warning.bind("<Return>", func=lambda event: tk.messagebox.showwarning(title="SLEEP NOW!",
