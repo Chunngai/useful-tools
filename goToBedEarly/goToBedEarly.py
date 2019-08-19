@@ -15,7 +15,8 @@ def check_time():
     go_to_bed_time = datetime.time(0, 0).strftime("%H%M")
 
     # compare
-    if int(go_to_bed_time) <= int(current_time) <= int("0200"):
+    # if int(go_to_bed_time) <= int(current_time) <= int("0200"):
+    if go_to_bed_time == go_to_bed_time:
         return True
     else:
         return False
@@ -53,7 +54,9 @@ def go_to_bed_early_win(count_):
         frame_1 = tk.Frame(frame)
         frame_1.pack(side=tk.LEFT, padx=25)
 
-        tk.Button(frame_1, text="OK", width=5, height=1, command=win.quit).pack()
+        button_ok = tk.Button(frame_1, text="OK", width=5, height=1, command=win.quit)
+        button_ok.bind("<Return>", lambda event: win.destroy())
+        button_ok.pack()
 
         # time selection button
         frame_2 = tk.Frame(frame)
@@ -63,20 +66,26 @@ def go_to_bed_early_win(count_):
         frame_3 = tk.Frame(frame_2)
         frame_3.pack(side=tk.TOP, pady=3)
 
-        five_min = tk.Radiobutton(frame_3, text="05 min", variable=wait_time, value=5)
+        five_min = tk.Radiobutton(frame_3, text="05 min", variable=wait_time, value=5,
+                                  command=lambda: {five_min.select(), win.destroy()})
+        five_min.bind("<Return>", func=lambda event: {five_min.select(), win.destroy()})
         five_min.grid(row=0, column=0)
-
+        '''
         five_min_button = tk.Button(frame_3, text="OK", command=win.quit)
-        five_min_button.grid(row=0, column=1)
+        five_min_button.bind("<Return>", lambda event: win.destroy())
+        five_min_button.grid(row=0, column=1)'''
 
         frame_4 = tk.Frame(frame_2)
         frame_4.pack(side=tk.BOTTOM, pady=3)
 
-        ten_min = tk.Radiobutton(frame_4, text="10 min", variable=wait_time, value=10)
+        ten_min = tk.Radiobutton(frame_4, text="10 min", variable=wait_time, value=10,
+                                 command=lambda: {ten_min.select(), win.destroy()})
+        ten_min.bind("<Return>", func=lambda event: {ten_min.select(), win.destroy()})
         ten_min.grid(row=0, column=0)
-
+        '''
         ten_min_button = tk.Button(frame_4, text="OK", command=win.quit)
-        ten_min_button.grid(row=0, column=1)
+        ten_min_button.bind("<Return>", lambda event: win.destroy())
+        ten_min_button.grid(row=0, column=1)'''
     else:
         tk.Button(frame, text="OK", command=lambda: tk.messagebox.showwarning(title="SLEEP NOW!",
                                                                               message="SLEEP NOW!")).pack()
@@ -93,6 +102,7 @@ def go_to_bed_early_win(count_):
     if wait_time_int == 0:
         wait_time_int = 1
 
+    print(wait_time_int)
     return wait_time_int
 
 
