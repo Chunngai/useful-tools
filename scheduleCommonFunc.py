@@ -1,4 +1,4 @@
-#!usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import re
@@ -23,7 +23,7 @@ def print_task_info_list(task_info_list_):
 
         # print other tasks(if there are)
         for j in range(1, len(task_name_list)):
-            print(' ' * (12 + len(str(i))), task_name_list[j])
+            print(' ' * (13 + len(str(i))), task_name_list[j])
 
 
 def copy_to_clipboard(task_info_list_):
@@ -42,7 +42,7 @@ def copy_to_clipboard(task_info_list_):
         schedule_str += ("{}-{} {}\n".format(start_time, end_time, task_name_list[0]))
 
         for j in range(1, len(task_name_list)):
-            schedule_str += (' ' * (9 + len(str(i))) + task_name_list[j] + '\n')
+            schedule_str += (' ' * 9 + task_name_list[j] + '\n')
 
     # copy the created schedule to the clipboard
     pyperclip.copy(schedule_str)
@@ -119,14 +119,17 @@ def get_task_info(task_info_list_, t):
     # get start time, end time, task names
     task = task_info_list_[task_index - 1]
 
-    start_time = str(task[0]).zfill(4)
-    end_time = str(task[1]).zfill(4)
+    start_time = task[0]
+    end_time = task[1]
+
+    start_time_str = str(task[0]).zfill(4)
+    end_time_str = str(task[1]).zfill(4)
     if task[1] == -1:
-        end_time = '/'
+        end_time_str = '/'
     task_name_list = task[3]
 
     if t == 't':
-        print("task_index: {}, start_time: {}, end_time: {}".format(task_index, start_time, end_time))
+        print("task_index: {}, start_time: {}, end_time: {}".format(task_index, start_time_str, end_time_str))
         return task_index, int(start_time), int(end_time)
     else:
         print("task_index: {}, task_name_list: {}".format(task_index, task_name_list))
