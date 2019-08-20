@@ -8,6 +8,7 @@ from scheduleCommonFunc import add_time
 from scheduleCommonFunc import get_delta_time
 from scheduleCommonFunc import print_task_info_list
 from scheduleCommonFunc import copy_to_clipboard
+from scheduleCommonFunc import h_to_min
 
 
 def create_schedule():
@@ -65,6 +66,10 @@ def create_schedule():
 
         if rst_s_1:  # the input matches pat_1
             duration_btw = int(rst_s_1.group(1))
+
+            # h -> min
+            duration_btw = h_to_min(rst_s_1.group(2), duration_btw)
+
             start_time = add_time(end_time, duration_btw)
 
             if int(rst_s_1.group(1)):
@@ -94,9 +99,9 @@ def create_schedule():
 
         if rst_d:  # the input matches pat_1
             duration = int(rst_d.group(1))
+            
             # h -> min
-            if rst_d.group(2) == 'h':
-                duration *= 60
+            duration = h_to_min(rst_d.group(2), duration)
 
             end_time = add_time(start_time, duration)
         elif rst_e:  # the input matches pat_2

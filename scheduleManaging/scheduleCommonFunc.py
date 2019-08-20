@@ -416,3 +416,10 @@ def compare_time(modified_time_, original_time_):
             return 1
         else:
             return 0
+
+
+def h_to_min(rst_group_n, time_):
+    if rst_group_n == 'h':
+        time_ *= 60
+
+    return time_

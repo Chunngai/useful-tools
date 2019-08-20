@@ -12,6 +12,7 @@ from scheduleCommonFunc import add_time
 from scheduleCommonFunc import minus_time
 from scheduleCommonFunc import get_delta_time
 from scheduleCommonFunc import compare_time
+from scheduleCommonFunc import h_to_min
 
 
 """
@@ -284,8 +285,7 @@ def get_modified_time(start_time_, end_time_):
         delta_time_ = int(rst_.group(2))
 
         # h -> min
-        if rst.group(3) == 'h':
-            delta_time_ *= 60
+        delta_time_ = h_to_min(rst.group(3), delta_time_)
 
         # add/minus
         if rst.group(1) in ['+', '']:
