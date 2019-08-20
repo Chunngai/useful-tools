@@ -11,6 +11,24 @@ from scheduleCommonFunc import copy_to_clipboard
 from scheduleCommonFunc import h_to_min
 
 
+def print_task(task):
+    start_time = task[0]
+    duration = task[2]
+    end_time = task[1]
+    task_list = task[3]
+
+    start_time_str = str(start_time).zfill(4)
+    if duration == -1:
+        duration = '/'
+    end_time_str = str(end_time).zfill(4)
+    if end_time == -1:
+        end_time_str = '/'
+
+    print("start time: {}, end time: {}, duration: {}, tasks: {}".format(start_time_str,
+                                                                         end_time_str, duration,
+                                                                         task_list))
+
+
 def create_schedule():
     print("Creating schedule ...\n")
     # schedule_str = ''  # store the schedule
@@ -40,6 +58,13 @@ def create_schedule():
         while not ((rst_s_1 and task_num > 0) or rst_s_2 or rst_q) or rst_r:
             if rst_r:
                 if redo_flag == 0:  # in a loop statements in the if statement can be implemented only once
+                    # print what have input the last time
+                    print("the input last time:")
+                    pat = re.compile(r"Anything")
+                    if task_num > 0 and pat.search(task_info_list[task_num - 2][3][0]):
+                        print_task(task_info_list[task_num - 2])
+                    print_task(task_info_list[task_num - 1])
+
                     task_num -= 1
                     # record the end time of the task which is input before the wrongly input task
                     end_time = task_info_list[task_num - 1][1]
@@ -117,21 +142,14 @@ def create_schedule():
         # Capitalise the first letter of every task name
         task_list = [task_name[0].upper() + task_name[1:] for task_name in task_list if len(task_name) > 0]
 
-        # show info of the current task
-        start_time_str = str(start_time).zfill(4)
-        end_time_str = str(end_time).zfill(4)
-        duration_str = str(duration)
-        if end_time == -1:
-            end_time_str = '/'
-            duration_str = '/'
-        print("start time: {}, end time: {}, duration: {} min".format(start_time_str, end_time_str, duration_str))
-        print("task name: {}".format(", ".join(task_list)))
-
         # store info
         # schedule_str += "{}-{} {}\n".format(start_time_str, end_time_str, task_name)
         task_info_list.append([start_time, end_time, duration, task_list])
         # count ++
         task_num += 1
+
+        # show info of the current task
+        print_task(task_info_list[-1])
 
         # print the whole schedule
         print('.' * 50)
