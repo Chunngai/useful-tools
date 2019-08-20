@@ -11,19 +11,23 @@ def print_task_info_list(task_info_list_):
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]  # for every task
 
-        # get start time, end time, task name
+        # get start time, end time, , duration, task name
         start_time = str(task[0]).zfill(4)
+        duration = task[2]
+        if task[2] == -1:
+            duration = ''
         end_time = str(task[1]).zfill(4)
         if task[1] == -1:
             end_time = ''
         task_name_list = task[3]
 
         # print (i) hhmm-(hhmm) task_name(the first one)
-        print("({}){} {}-{} {}".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, task_name_list[0]))
+        print("({}){} {}-{} {} {}".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, duration,
+                                          task_name_list[0]))
 
         # print other tasks(if there are)
         for j in range(1, len(task_name_list)):
-            print(' ' * (13 + len(str(i))), task_name_list[j])
+            print(' ' * (16 + len(str(i))), task_name_list[j])
 
 
 def copy_to_clipboard(task_info_list_):
@@ -31,18 +35,21 @@ def copy_to_clipboard(task_info_list_):
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]
 
-        # get start time, end time, task names
+        # get start time, end time, duration, task names
         start_time = str(task[0]).zfill(4)
+        duration = task[2]
+        if task[2] == -1:
+            duration = ''
         end_time = str(task[1]).zfill(4)
         if task[1] == -1:
             end_time = ''
         task_name_list = task[3]
 
         # concatenation
-        schedule_str += ("{}-{} {}\n".format(start_time, end_time, task_name_list[0]))
+        schedule_str += ("{}-{} {} {}\n".format(start_time, end_time, duration, task_name_list[0]))
 
         for j in range(1, len(task_name_list)):
-            schedule_str += (' ' * 9 + task_name_list[j] + '\n')
+            schedule_str += (' ' * 13 + task_name_list[j] + '\n')
 
     # copy the created schedule to the clipboard
     pyperclip.copy(schedule_str)
@@ -69,25 +76,29 @@ def generate_task_list(data_):
     task_info_list = []
     # matches hhmm(-)hhmm task_name
     # pat = re.compile(r"(\d+)\-(\d*)\s?(.*)")
-    pat = re.compile(r"(- \[ ] )?((\d+)-(\d*))?\s*(.*)")
+    pat = re.compile(r"(- \[ ] )?((\d+)-(\d*))?\s*(\d+)?\s*(.*)")
     for i in range(len(input_list)):
         rst = pat.search(input_list[i])
 
         # get start time, end time, duration, task name
         if rst.group(2):
-            start_time = ''
-            end_time = ''
+            start_time = 0
+            duration = 0
+            end_time = 0
             if rst.group(3):
                 start_time = int(rst.group(3))
             if rst.group(4):
                 end_time = int(rst.group(4))
             if rst.group(3) and not rst.group(4):  # like 2110-
                 end_time = -1
-            duration = get_delta_time(end_time, start_time)
-            task_name_list = [rst.group(5)]
+            if rst.group(5):
+                duration = int(rst.group(5))
+            else:  # like 2110-
+                duration = -1
+            task_name_list = [rst.group(6)]
             task_info_list.append([start_time, end_time, duration, task_name_list])
         else:
-            task_info_list[len(task_info_list) - 1][3].append(rst.group(5))
+            task_info_list[len(task_info_list) - 1][3].append(rst.group(6))
 
     return task_info_list
 
