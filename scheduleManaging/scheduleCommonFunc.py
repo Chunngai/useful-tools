@@ -125,7 +125,7 @@ def get_task_info(task_info_list_, t):
     print()
 
     # get the index of the task whose info is to be modified
-    task_index = input_index("input the index of the task from which the time is to be modified >>> ", task_info_list_)
+    task_index = input_index("input the index of the task you wanna modify >>> ", task_info_list_)
 
     # get start time, end time, task names
     task = task_info_list_[task_index - 1]

@@ -10,6 +10,15 @@ from scheduleCommonFunc import copy_to_clipboard
 from scheduleCommonFunc import input_index
 
 
+def get_task():
+    task = input("modify a task name(m) or add(a) a task name? (m/a) >>> ")
+    # check if the input is valid
+    while task not in ['a', 'm']:
+        task = input("input 'a' or 'm' only! input again >>> ")
+
+    return task
+
+
 def name_modify(task_info_list_, task_index_, task_name_list_):
     # print task names of the specified index
     for i in range(len(task_name_list_)):
@@ -27,6 +36,16 @@ def name_modify(task_info_list_, task_index_, task_name_list_):
     return task_info_list_
 
 
+def name_add(task_info_list_, task_index_):
+    new_task_name = input("input the new task name")
+    while not new_task_name:
+        new_task_name = input("the new task name cannot be empty! input again >>> ")
+
+    task_info_list_[task_index_ - 1][3].append(new_task_name)
+
+    return task_info_list_
+
+
 def modify_task_name():
     # receive data
     data = input_()
@@ -34,11 +53,18 @@ def modify_task_name():
     # make data into a nested list
     task_info_list = generate_task_list(data)
 
-    # ask how to modify
+    # get the task to be modified
     task_index, task_name_list = get_task_info(task_info_list, 'n')
 
-    # modify the task name
-    task_info_list = name_modify(task_info_list, task_index, task_name_list)
+    # ask what to do
+    task = get_task()
+
+    if task == 'm':
+        # modify the task name
+        task_info_list = name_modify(task_info_list, task_index, task_name_list)
+    else:
+        # add a task name
+        task_info_list = name_add(task_info_list, task_index)
 
     # print the modified schedule
     print_task_info_list(task_info_list)

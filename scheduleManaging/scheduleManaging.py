@@ -13,8 +13,8 @@ def get_task():
     # choose a task
     task_num = input(
         """1. create a schedule
-        \r2. modify a schedule
-        \r3. modify a task name
+        \r2. modify time of the schedule
+        \r3. modify/add a task name
         \r4. copy schedule from txt
         \rwhat to do? >>> """)
     # input should be '1', '2', '3' and '4'
