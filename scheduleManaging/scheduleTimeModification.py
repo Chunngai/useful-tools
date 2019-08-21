@@ -362,8 +362,13 @@ def get_modified_time(start_time_, end_time_):
         # the task originally has not an end time and a duration or an end time is not given
         modified_end_time = -1
 
+    # modify the duration
+    modified_duration = 0
+    if modified_end_time != -1:
+        modified_duration = get_delta_time(modified_end_time, modified_start_time)
+
     print("modified_start_time: {}, modified_end_time: {}\n".format(modified_start_time, modified_end_time))
-    return modified_start_time, modified_end_time
+    return modified_start_time, modified_end_time, modified_duration
 
 """
 def compare_time(modified_time_, original_time_):
@@ -489,12 +494,13 @@ def get_delta_time(modified_time_, original_time_):
 """
 
 
-def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_time_, modified_end_time_):
+def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_time_, modified_end_time_, modified_duration_):
     new_task_info_list = task_info_list_
 
-    # add modified start time and end time to the list
+    # add modified start time, end time and duration to the list
     new_task_info_list[task_index_ - 1][0] = modified_start_time_
     new_task_info_list[task_index_ - 1][1] = modified_end_time_
+    new_task_info_list[task_index_ - 1][2] = modified_duration_
 
     # the parameter original_time_ in add_time() and minus_time() is greater than or equal to 0
     delta_time_parameter = abs(delta_time_)
@@ -564,11 +570,11 @@ def modify_time():
 
     # ask how to modify
     task_index, start_time, end_time = get_task_info(task_info_list, 't')
-    modified_start_time, modified_end_time = get_modified_time(start_time, end_time)
+    modified_start_time, modified_end_time, modified_duration = get_modified_time(start_time, end_time)
 
     while end_time != -1 and compare_time(modified_end_time, modified_start_time) == 0:
         print("modified end time is earlier than modified start time! input data again!")
-        modified_start_time, modified_end_time = get_modified_time(start_time, end_time)
+        modified_start_time, modified_end_time, modified_duration = get_modified_time(start_time, end_time)
 
     # calculate modified_time - end_time
     delta_time = get_delta_time(modified_end_time, end_time)
@@ -576,7 +582,8 @@ def modify_time():
         delta_time = 0
 
     # modify schedule
-    new_task_info_list = modify_remaining(task_index, task_info_list, delta_time, modified_start_time, modified_end_time)
+    new_task_info_list = modify_remaining(task_index, task_info_list, delta_time,
+                                          modified_start_time, modified_end_time, modified_duration)
 
     return new_task_info_list
 
