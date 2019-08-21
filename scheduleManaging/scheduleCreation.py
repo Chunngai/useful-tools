@@ -7,7 +7,6 @@ import re
 from scheduleCommonFunc import add_time
 from scheduleCommonFunc import get_delta_time
 from scheduleCommonFunc import print_task_info_list
-from scheduleCommonFunc import copy_to_clipboard
 from scheduleCommonFunc import h_to_min
 
 
@@ -192,7 +191,8 @@ def create_schedule():
     # copy the created schedule to the clipboard
     pyperclip.copy(schedule_str)
     print(schedule_str)"""
-    copy_to_clipboard(task_info_list)
+
+    return task_info_list
 
 
 if __name__ == '__main__':

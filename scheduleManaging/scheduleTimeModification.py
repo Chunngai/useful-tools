@@ -4,7 +4,6 @@
 import re
 
 from scheduleCommonFunc import print_task_info_list
-from scheduleCommonFunc import copy_to_clipboard
 from scheduleCommonFunc import input_
 from scheduleCommonFunc import generate_task_list
 from scheduleCommonFunc import get_task_info
@@ -578,12 +577,8 @@ def modify_time():
 
     # modify schedule
     new_task_info_list = modify_remaining(task_index, task_info_list, delta_time, modified_start_time, modified_end_time)
-    print()
 
-    # copy the new list to the clipboard
-    print("modified schedule:")
-    print('-' * 30)
-    copy_to_clipboard(new_task_info_list)
+    return new_task_info_list
 
 
 if __name__ == '__main__':

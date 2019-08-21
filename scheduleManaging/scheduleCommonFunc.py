@@ -7,53 +7,63 @@ import math
 import pyperclip
 
 
+def get_task_info_str(task):
+    # get start time, end time, duration, task names
+    start_time = str(task[0]).zfill(4)
+    duration = str(task[2]).zfill(3)
+    if task[2] == -1:
+        duration = "###"
+    end_time = str(task[1]).zfill(4)
+    if task[1] == -1:
+        end_time = "####"
+    task_name_list = task[3]
+
+    return start_time, end_time, duration, task_name_list
+
+
 def print_task_info_list(task_info_list_):
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]  # for every task
-
-        # get start time, end time, , duration, task name
-        start_time = str(task[0]).zfill(4)
-        duration = task[2]
-        if task[2] == -1:
-            duration = ''
-        end_time = str(task[1]).zfill(4)
-        if task[1] == -1:
-            end_time = ''
-        task_name_list = task[3]
+        start_time, end_time, duration, task_name_list = get_task_info_str(task)
 
         # print (i) hhmm-(hhmm) task_name(the first one)
-        print("({}){} {}-{} {} {}".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, duration,
-                                          task_name_list[0]))
+        str_0 = "({}){} {}-{} {} ".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, duration)
+        str_1 = "{}".format(task_name_list[0])
+        print(str_0 + str_1)
 
         # print other tasks(if there are)
         for j in range(1, len(task_name_list)):
-            print(' ' * (16 + len(str(i))), task_name_list[j])
+            print(' ' * (len(str_0) - 1), task_name_list[j])
 
 
-def copy_to_clipboard(task_info_list_):
+def generate_schedule_str(task_info_list_, mode):
     schedule_str = ''
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]
-
-        # get start time, end time, duration, task names
-        start_time = str(task[0]).zfill(4)
-        duration = task[2]
-        if task[2] == -1:
-            duration = ''
-        end_time = str(task[1]).zfill(4)
-        if task[1] == -1:
-            end_time = ''
-        task_name_list = task[3]
+        start_time, end_time, duration, task_name_list = get_task_info_str(task)
 
         # concatenation
-        schedule_str += ("{}-{} {} {}\n".format(start_time, end_time, duration, task_name_list[0]))
+        str_0 = "{}-{} {} ".format(start_time, end_time, duration)
+        str_1 = "{}\n".format(task_name_list[0])
+        schedule_str += (str_0 + str_1)
 
         for j in range(1, len(task_name_list)):
-            schedule_str += (' ' * 13 + task_name_list[j] + '\n')
+            if mode == 'c':
+                fill_str = ' ' * 13
+            else:
+                fill_str = "        "
+
+            schedule_str += (fill_str + task_name_list[j] + '\n')
+
+    return schedule_str
+
+
+def copy_to_clipboard(task_info_list_):
+    # get schedule str
+    schedule_str = generate_schedule_str(task_info_list_, 'c')
 
     # copy the created schedule to the clipboard
     pyperclip.copy(schedule_str)
-    print(schedule_str)
 
 
 def input_():
@@ -76,22 +86,21 @@ def generate_task_list(data_):
     task_info_list = []
     # matches hhmm(-)hhmm task_name
     # pat = re.compile(r"(\d+)\-(\d*)\s?(.*)")
-    pat = re.compile(r"(- \[ ] )?((\d+)-(\d*))?\s*(\d+)?\s*(.*)")
+    pat = re.compile(r"(- \[ ] )?((\d+)-(\d+|####))?\s*(\d+|###)?\s*(.*)")
     for i in range(len(input_list)):
         rst = pat.search(input_list[i])
 
         # get start time, end time, duration, task name
         if rst.group(2):
             start_time = 0
-            duration = 0
             end_time = 0
             if rst.group(3):
                 start_time = int(rst.group(3))
-            if rst.group(4):
+            if rst.group(4) != "####":
                 end_time = int(rst.group(4))
-            if rst.group(3) and not rst.group(4):  # like 2110-
+            if rst.group(3) and rst.group(4) == "####":  # like 2110-
                 end_time = -1
-            if rst.group(5):
+            if rst.group(5) != "###":
                 duration = int(rst.group(5))
             else:  # like 2110-
                 duration = -1

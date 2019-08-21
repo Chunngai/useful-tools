@@ -6,7 +6,6 @@ from scheduleCommonFunc import input_
 from scheduleCommonFunc import generate_task_list
 from scheduleCommonFunc import get_task_info
 from scheduleCommonFunc import print_task_info_list
-from scheduleCommonFunc import copy_to_clipboard
 from scheduleCommonFunc import input_index
 
 
@@ -66,14 +65,7 @@ def modify_task_name():
         # add a task name
         task_info_list = name_add(task_info_list, task_index)
 
-    # print the modified schedule
-    print_task_info_list(task_info_list)
-    print()
-
-    # copy to the clipboard
-    print("modified schedule:")
-    print('-' * 30)
-    copy_to_clipboard(task_info_list)
+    return task_info_list
 
 
 if __name__ == '__main__':
