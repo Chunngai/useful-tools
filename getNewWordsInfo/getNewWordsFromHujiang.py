@@ -44,24 +44,34 @@ wd%3D&eqid%3Df42913f70002336e000000065ce510ca; _UZT_USER_SET_106_0_DEFAULT=2|ea3
 
 def make_request(url):
     headers = generate_headers()
-    try:
-        r = requests.get(url, headers=headers)
-        r.raise_for_status()
-        r.encoding = r.apparent_encoding
-        return r.text
-    except:
-        return ''
+
+    count = 0
+    while count < 3:
+        try:
+            r = requests.get(url, headers=headers)
+            r.raise_for_status()
+            r.encoding = r.apparent_encoding
+            return r.text
+        except:
+            pass
+        count += 1
+
+    return ""
 
 
 def get_info(html_text):
+    # store pronunciation, simple meanings
+    info_dict = {}
+
     # get soup
     soup = BeautifulSoup(html_text, "html.parser")
 
     # get pronunciation
     try:
         pronunciation = soup("span", "pronounce-value-en")[0].string
+        info_dict["pronunciation"] = pronunciation
     except:
-        pronunciation = ""
+        info_dict["pronunciation"] = "[]"
 
     # get simple meanings
     simple_meanings = {}
@@ -79,10 +89,14 @@ def get_info(html_text):
                 pass
             else:
                 simple_meanings[part_of_speech] = simple_meanings_
-    except:
-        pass
 
-    return [pronunciation, simple_meanings]
+            # put into info_dict
+            info_dict["simple_meanings"] = simple_meanings
+    except:
+        info_dict["simple_meanings"] = {}
+
+    print(info_dict)
+    return info_dict
 
 
 def get_word_info_dict(word_list):
@@ -115,10 +129,14 @@ def get_word_info_dict(word_list):
 def save_info(word_info):
     with open("eng_words_.txt", 'w', encoding="utf-8") as f:
         for word, info in word_info.items():
-            f.write("{}\n{}\n".format(word, info[0]))
-            for part_of_speech, meanings in info[1].items():
-                f.write("{} {}\n".format(part_of_speech, meanings))
-            f.write('\n')
+            f.write("{}\n".format(word))
+            f.write("{}\n".format(info["pronunciation"]))
+
+            for part_of_speech, simple_meanings in info["simple_meanings"].items():
+                f.write("{}, {}\n".format(part_of_speech, simple_meanings))
+
+            f.write("\n")
+
 
 
 def get_new_words_from_hujiang(file_path_):
