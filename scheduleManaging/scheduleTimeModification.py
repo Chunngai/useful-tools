@@ -167,7 +167,7 @@ def modify_remaining(task_index_, task_info_list_, delta_time_, modified_start_t
                     end_time_modified = -1
 
                 # update the schedule
-                task_ = new_task_info_list_[j]
+                task_ = new_task_info_list[j]
                 task_[0] = start_time_modified
                 task_[1] = end_time_modified
 
