@@ -8,52 +8,58 @@ import pyperclip
 
 
 def get_task_info_str(task):
-    # get start time, end time, duration, task names
+    # get start time
     start_time = str(task[0]).zfill(4)
+    # get duration
     duration = str(task[2]).zfill(3)
     if task[2] == -1:
         duration = "###"
+    # get end time
     end_time = str(task[1]).zfill(4)
     if task[1] == -1:
         end_time = "####"
-    task_name_list = task[3]
+    # get task list
+    task_list = task[3]
 
-    return start_time, end_time, duration, task_name_list
+    return start_time, end_time, duration, task_list
 
 
 def print_task_info_list(task_info_list_):
     for i in range(len(task_info_list_)):
-        task = task_info_list_[i]  # for every task
-        start_time, end_time, duration, task_name_list = get_task_info_str(task)
+        task = task_info_list_[i]
+        # get start time, end time, duration, task list
+        start_time, end_time, duration, task_list = get_task_info_str(task)
 
-        # print (i) hhmm-(hhmm) task_name(the first one)
+        # print (i) hhmm-(hhmm) duration task_name(the first one)
         str_0 = "({}){} {}-{} {} ".format(i + 1, ' ' if len(str(i + 1)) == 1 else '', start_time, end_time, duration)
-        str_1 = "{}".format(task_name_list[0])
+        str_1 = "{}".format(task_list[0])
         print(str_0 + str_1)
 
         # print other tasks(if there are)
-        for j in range(1, len(task_name_list)):
-            print(' ' * (len(str_0) - 1), task_name_list[j])
+        for j in range(1, len(task_list)):
+            print(' ' * (len(str_0) - 1), task_list[j])
 
 
 def generate_schedule_str(task_info_list_, mode):
     schedule_str = ''
+
     for i in range(len(task_info_list_)):
         task = task_info_list_[i]
-        start_time, end_time, duration, task_name_list = get_task_info_str(task)
+        # get start time, end time, duration, task list
+        start_time, end_time, duration, task_list = get_task_info_str(task)
 
         # concatenation
         str_0 = "{}-{} {} ".format(start_time, end_time, duration)
-        str_1 = "{}\n".format(task_name_list[0])
+        str_1 = "{}\n".format(task_list[0])
         schedule_str += (str_0 + str_1)
 
-        for j in range(1, len(task_name_list)):
-            if mode == 'c':
+        for j in range(1, len(task_list)):
+            if mode == 'c':  # the str is to be written to tmp.txt and the docx
                 fill_str = ' ' * 13
-            else:
+            else:  # the str is to be sent to wechat
                 fill_str = "        "
 
-            schedule_str += (fill_str + task_name_list[j] + '\n')
+            schedule_str += (fill_str + task_list[j] + '\n')
 
     return schedule_str
 
@@ -85,13 +91,12 @@ def generate_task_list(data_):
     # get time and tasks
     task_info_list = []
     # matches hhmm(-)hhmm task_name
-    # pat = re.compile(r"(\d+)\-(\d*)\s?(.*)")
     pat = re.compile(r"(- \[ ] )?((\d+)-(\d+|####))?\s*(\d+|###)?\s*(.*)")
     for i in range(len(input_list)):
         rst = pat.search(input_list[i])
 
         # get start time, end time, duration, task name
-        if rst.group(2):
+        if rst.group(2):  # hhmm-hhmm
             start_time = 0
             end_time = 0
             if rst.group(3):
@@ -104,9 +109,9 @@ def generate_task_list(data_):
                 duration = int(rst.group(5))
             else:  # like 2110-
                 duration = -1
-            task_name_list = [rst.group(6)]
-            task_info_list.append([start_time, end_time, duration, task_name_list])
-        else:
+            task_list = [rst.group(6)]
+            task_info_list.append([start_time, end_time, duration, task_list])
+        else:  # hhmm-
             task_info_list[len(task_info_list) - 1][3].append(rst.group(6))
 
     return task_info_list
@@ -116,9 +121,11 @@ def input_index(prompt_, list_):
     index_input = input(prompt_)
 
     while True:
+        # judge if the index is a digit
         if not str(index_input).isdigit():
             index_input = input("invalid index! input again >>> ")
             continue
+        # judge if the index is in the valid range
         if int(index_input) not in range(1, len(list_) + 1):
             index_input = input("invalid index! input again >>> ")
             continue
@@ -146,14 +153,14 @@ def get_task_info(task_info_list_, t):
     end_time_str = str(task[1]).zfill(4)
     if task[1] == -1:
         end_time_str = '/'
-    task_name_list = task[3]
+    task_list = task[3]
 
-    if t == 't':
+    if t == 't':  # time modification
         print("task_index: {}, start_time: {}, end_time: {}".format(task_index, start_time_str, end_time_str))
         return task_index, int(start_time), int(end_time)
-    else:
-        print("task_index: {}, task_name_list: {}".format(task_index, task_name_list))
-        return task_index, task_name_list
+    else:  # task name modification
+        print("task_index: {}, task_list: {}".format(task_index, task_list))
+        return task_index, task_list
 
 
 def get_hour(time_):

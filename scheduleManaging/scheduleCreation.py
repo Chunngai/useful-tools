@@ -3,7 +3,6 @@
 
 import re
 
-
 from scheduleCommonFunc import add_time
 from scheduleCommonFunc import get_delta_time
 from scheduleCommonFunc import print_task_info_list
@@ -11,14 +10,19 @@ from scheduleCommonFunc import h_to_min
 
 
 def print_task(task):
+    # get the start time
     start_time = task[0]
+    # get the duration
     duration = task[2]
+    # get the end time
     end_time = task[1]
+    # get the task list
     task_list = task[3]
 
     start_time_str = str(start_time).zfill(4)
     if duration == -1:
         duration = '/'
+
     end_time_str = str(end_time).zfill(4)
     if end_time == -1:
         end_time_str = '/'
@@ -30,7 +34,7 @@ def print_task(task):
 
 def create_schedule():
     print("Creating schedule ...\n")
-    # schedule_str = ''  # store the schedule
+
     # [start time, end time, duration, [task name 1, task name 2...]]
     task_info_list = []  # store task info. time info is int and the name is str.
     end_time = ''  # store the end time of the task which is input in the last loop
@@ -59,8 +63,10 @@ def create_schedule():
                 if redo_flag == 0:  # in a loop statements in the if statement can be implemented only once
                     # print what have input the last time
                     print("the input last time:")
+
                     pat = re.compile(r"Anything")
                     if task_num > 0 and pat.search(task_info_list[task_num - 2][3][0]):
+                        # print the automatically generated "Anything (+...)" task
                         print_task(task_info_list[task_num - 2])
                     print_task(task_info_list[task_num - 1])
 
@@ -70,6 +76,7 @@ def create_schedule():
                     # delete the info of the task which is wrongly input
                     task_info_list.pop()
 
+                    # delete the automatically generated "Anything (+...)" task
                     pat = re.compile(r"Anything")
                     if task_num > 0 and pat.search(task_info_list[task_num - 1][3][0]):
                         task_num -= 1
@@ -131,14 +138,14 @@ def create_schedule():
         elif rst_e:  # the input matches pat_2
             end_time = int(rst_e.group(0))
             duration = get_delta_time(end_time, start_time)
-        else:
+        else:  # matches pat_5
             end_time = -1
             duration = -1
 
         # get task names
         task_input = input("Input task names >>> ")
         task_list = re.split(r"\s*/\s*", task_input)
-        # Capitalise the first letter of every task name
+        # Capitalize the first letter of every task name
         task_list = [task_name[0].upper() + task_name[1:] for task_name in task_list if len(task_name) > 0]
 
         # store info
@@ -152,45 +159,9 @@ def create_schedule():
 
         # print the whole schedule
         print('.' * 50)
-        """for i in range(len(task_info_list)):
-            task = task_info_list[i]  # for every task
-
-            # get start time, end time, task name
-            start_time_str = str(task[0]).zfill(4)
-            end_time_str = str(task[1]).zfill(4)
-            if task[1] == -1:
-                end_time_str = ''
-            task_name_list = task[3]
-
-            # print (i) hhmm-(hhmm) task_name(the first one)
-            print("({}) {}-{} {}".format(i + 1, start_time_str, end_time_str, task_name_list[0]))
-
-            # print other tasks(if there are)
-            for j in range(1, len(task_name_list)):
-                print(' ' * (12 + len(str(i))), task_name_list[j])"""
         print_task_info_list(task_info_list)
         print('.' * 50)
-
         print()
-
-    """for i in range(len(task_info_list)):
-        task = task_info_list[i]
-
-        # get start time, end time, task names
-        start_time = str(task[0]).zfill(4)
-        end_time = str(task[1]).zfill(4)
-        if task[1] == -1:
-            end_time = ''
-        task_name_list = task[3]
-
-        schedule_str += ("{}-{} {}\n".format(start_time, end_time, task_name_list[0]))
-
-        for j in range(1, len(task_name_list)):
-            schedule_str += (' ' * (9 + len(str(i))) + task_name_list[j] + '\n')
-
-    # copy the created schedule to the clipboard
-    pyperclip.copy(schedule_str)
-    print(schedule_str)"""
 
     return task_info_list
 
