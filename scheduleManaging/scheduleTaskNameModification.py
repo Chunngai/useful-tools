@@ -29,6 +29,9 @@ def name_modify(task_info_list_, task_index_, task_name_list_):
     # get a new name
     new_name = input("input the new name >>> ")
 
+    # capitalize the first letter
+    new_name = new_name[0].capitalize() + new_name[1:]
+
     # modified the name list
     task_info_list_[task_index_ - 1][3][name_index - 1] = new_name
 
