@@ -104,14 +104,14 @@ def go_to_bed_early_win(count_):
 
 
 def go_to_bed_early():
-    # check time. the win will pop-up after 00:00
-    while not check_time():
-        pass
-
     # pop-up the win
     count = 1  # count times. make the win pop-up after 5 min or 10 min for 3 times at most.
     wait_time = 0  # 0.83 or 5 or 10
     while True:
+        # check time. the win will pop-up after 00:00
+        while not check_time():
+            pass
+
         # count += 1 if "05 min" or "10 min" is selected
         if wait_time == 5 or wait_time == 10:
             count += 1
