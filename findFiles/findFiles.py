@@ -6,45 +6,37 @@ import re
 import os
 
 
+def get_inputs():
+    # receive a dir path
+    dir_path = input("input the dir path >>> ")
+
+    # check if the dir path exists
+    while not os.path.exists(dir_path):
+        dir_path = input("the path does not exists! input again >>> ")
+
+    # receive the pat to match file names
+    pat_input = input("receive the pattern >>> ")
+
+    return dir_path, pat_input
+
+
 def find_files():
-    # # add a '\' before escape letters
-    # pat = pat_raw
-    #
-    # escape_list = ['\$', '\(', '\)', '\*', '\+', '\.', '\[', '\]', '\?', r'\\', '\^', '\{', '\}', '\|']
-    # for escape_letter in escape_list:
-    #     # compile
-    #     escape_pat = re.compile(r"{}".format(escape_letter))
-    #     print(escape_letter)
-    #     print(escape_pat, '\n')
-    #
-    #     # if there are some escape letters escape_letter in the input, add a '\' before the escape letter
-    #     if escape_pat.search(pat_raw):
-    #         pat = escape_pat.sub("\\{}".format(escape_letter), pat)
-    #
-    #         print(pat)
-    #
-    #     # input()
+    # get the dir path and the pattern
+    dir_path, pat_input = get_inputs()
 
     # compile the pat
-    pat = re.compile(r"{}".format(pat_raw))
-    print(pat)
+    pat = re.compile(r"{}".format(pat_input))
 
-    # list file names in the dir
+    # put file names in the dir into a list
     file_names = os.listdir(dir_path)
-    # print(file_names)
 
     # find files whose names match the pattern
     file_matched = [file_name for file_name in file_names if pat.search(file_name)]
 
-    print(file_matched)
+    # print(file_matched)
+    # move matched files to a newly created dir
 
 
 if __name__ == '__main__':
-    # receive a dir path
-    dir_path = input("input the dir path >>> ")
-
-    # receive the pat to match file names
-    pat_raw = input("receive the pattern >>> ")
-
     # file files
     find_files()
