@@ -4,6 +4,7 @@
 
 import re
 import os
+import shutil
 
 
 def get_inputs():
@@ -20,21 +21,43 @@ def get_inputs():
     return dir_path, pat_input
 
 
+def copy_files(files_matched, dir_path):
+    # create a dir
+    dir_name = input("input the dir name >>> ")
+
+    try:
+        os.mkdir(dir_name)
+    except:
+        pass
+
+    # move files matching the pat to the newly created dir
+    for file in files_matched:
+        # generate the path of the file to be copied
+        file_path_from = os.path.join(dir_path, file)
+        # generate the path where the file is to be stored
+        file_path_to = os.path.join(dir_name, file)
+
+        # copy the file to the dir
+        if os.path.isfile(file_path_from):
+            shutil.copy(file_path_from, file_path_to)
+        else:
+            shutil.copytree(file_path_from, file_path_to)
+
+
 def find_files():
     # get the dir path and the pattern
     dir_path, pat_input = get_inputs()
 
-    # compile the pat
-    pat = re.compile(r"{}".format(pat_input))
-
     # put file names in the dir into a list
     file_names = os.listdir(dir_path)
 
+    # compile the pat
+    pat = re.compile(r"{}".format(pat_input))
     # find files whose names match the pattern
-    file_matched = [file_name for file_name in file_names if pat.search(file_name)]
+    files_matched = [file_name for file_name in file_names if pat.search(file_name)]
 
-    # print(file_matched)
-    # move matched files to a newly created dir
+    # copy matched files to a newly created dir
+    copy_files(files_matched, dir_path)
 
 
 if __name__ == '__main__':
