@@ -39,7 +39,7 @@ def name_modify(task_info_list_, task_index_, task_name_list_):
 
 
 def name_add(task_info_list_, task_index_):
-    new_task_name = input("input the new task name")
+    new_task_name = input("input the new task name >>> ")
     # check if the input is empty
     while not new_task_name:
         new_task_name = input("the new task name cannot be empty! input again >>> ")

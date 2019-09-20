@@ -144,6 +144,9 @@ def create_schedule():
 
         # get task names
         task_input = input("Input task names >>> ")
+        while not task_input.strip():
+            task_input = input("The task name is empty! Input again >>> ")
+
         task_list = re.split(r"\s*/\s*", task_input)
         # Capitalize the first letter of every task name
         task_list = [task_name[0].upper() + task_name[1:] for task_name in task_list if len(task_name) > 0]
