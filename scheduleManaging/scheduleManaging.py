@@ -21,7 +21,7 @@ def get_task():
         \r2. modify time of the schedule
         \r3. modify/add a task name
         \r4. copy schedule from txt
-        \r5. sent to chat
+        \r5. sent to wechat
         \rwhat to do? >>> """)
     # input should be '1', '2', '3', '4' and '5'
     while task_num not in ['1', '2', '3', '4', '5'] or not task_num.isdigit():
