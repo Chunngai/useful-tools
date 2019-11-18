@@ -19,10 +19,6 @@ def get_word_list(file_path_):
 
 def generate_headers():
     headers = {
-        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/si\
-gned-exchange;v=b3',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'zh-CN,zh;q=0.9,ja;q=0.8,en;q=0.7',
         'cookie': 'HJ_UID=0af72702-0a73-8b72-8d39-aa97cabeda7e; _REG=www.baidu.com|; _REF=https://www.baidu.com/link?ur\
 l%3D9AoCiI88Q31AHRiwUkPropSrEjnrnbBe6Z3Q4jdNhHnQQ0Pw8uHBGy5_kLqIvggiFWlmU4MbkdfslKxMzUgPvWXeFhI-50fmdQtREVTsAgG&wd%3D&e\
 qid%3Ddcf5801000050c70000000065bc2ee0e; _SREG_20=www.baidu.com|; TRACKSITEMAP=3%2C6%2C11%2C19%2C20%2C22%2C23%2C75%2C242\
@@ -31,11 +27,6 @@ qid%3Ddcf5801000050c70000000065bc2ee0e; _SREG_20=www.baidu.com|; TRACKSITEMAP=3%
 www.baidu.com|; HJ_SID=22465fb1-9abb-af3e-55fa-1ca37c6b47f3; HJ_SSID_3=48c7c028-4b88-a0b0-a3ea-48b7d75ec3ae; HJ_CST=0; \
 HJ_CSST_3=0; _SREF_3=https://www.baidu.com/link?url%3D9cpSSix5enS5LJ3QOeDwMB_lMsEqnDoF7imiK07a6EBS9jliyjPw0X98xROWaVTI&\
 wd%3D&eqid%3Df42913f70002336e000000065ce510ca; _UZT_USER_SET_106_0_DEFAULT=2|ea3cbaa2f0bb85661c19a0048c3a6f35',
-        'if-none-match': '"4d60-ovUe81sI7Np+PHX3d4vLqkBTS2Q"',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-site': 'same-origin',
-        'sec-fetch-user': '?1',
-        'upgrade-insecure-requests': '1',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.380\
 9.100 Safari/537.36'}
 
@@ -67,13 +58,16 @@ def get_info(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
 
     # get pronunciation
+    pronunciation = []
     try:
         pronunciation = soup("span", "pronounce-value-en")[0].string
         info_dict["pronunciation"] = pronunciation
     except:
         info_dict["pronunciation"] = "[]"
 
-    # get simple meanings
+    print(pronunciation)
+
+    """# get simple meanings
     simple_meanings = {}
     try:
         div_simple = soup("div", "simple")[0]
@@ -93,7 +87,7 @@ def get_info(html_text):
             # put into info_dict
             info_dict["simple_meanings"] = simple_meanings
     except:
-        info_dict["simple_meanings"] = {}
+        info_dict["simple_meanings"] = {}"""
 
     print(info_dict)
     return info_dict
@@ -128,15 +122,7 @@ def get_word_info_dict(word_list):
 
 def save_info(word_info):
     with open("eng_words_.txt", 'w', encoding="utf-8") as f:
-        for word, info in word_info.items():
-            f.write("{}\n".format(word))
-            f.write("{}\n".format(info["pronunciation"]))
-
-            for part_of_speech, simple_meanings in info["simple_meanings"].items():
-                f.write("{}, {}\n".format(part_of_speech, simple_meanings))
-
-            f.write("\n")
-
+        pass
 
 
 def get_new_words_from_hujiang(file_path_):

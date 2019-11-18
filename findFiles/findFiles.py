@@ -45,7 +45,7 @@ def copy_files(files_matched, dir_path):
 
 
 def find_files():
-    # get the dir path and the pattern
+    # get the dir path and the pattern`
     dir_path, pat_input = get_inputs()
 
     # put file names in the dir into a list
