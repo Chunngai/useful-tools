@@ -1,0 +1,2788 @@
+,题干,A,B,C,D,E,F,答案,uncertain,incorrect,question_index
+7,属于解释性程序是________,java,c++,c,vb,,,A,,1,0
+10,"Suppose you define a Java class as follows:
+class Test {
+}
+In order to compile this program, the source code should be stored in a file named",Test.java,Any name with extension .java,Test.class,test.java,,,B,,1,0
+16,________ is a technical definition of the language that includes the syntax and semantics of the Java programming language,Java language specification 语言规范,Java API,Java JDK,Java IDE,,,A,,1,0
+17,"________ provides an integrated development environment (IDE) for rapidly developing Java programs. Editing, compiling, building, debugging, and online help are integrated in one graphical user interface",Java language specification,Java API,Java JDK,Java IDE,,,C,,1,0
+18,"Java程序的执行过程中用到一套JDK工具,其中java.exe是指( )",Java文档生成器,Java解释器,Java编译器,Java类分解器,,,B,C,1,0
+45,Which access specifier allows class members to be accessed by any class in its own package?,protected,public,private,default,,,D,,1,0
+49,"What code may be filled in the blank without causing syntax or runtime errors:
+public class Test {
+  java.util.Date date;
+  public static void main(String[] args) {
+    Test test = new Test();
+    System.out.println(_________________);
+  }
+}",test.date,date,test.date.toString(),date.toString(),,,A,C,1,0
+63,"Given:
+1. public class Test {
+2. public static void main(String [] args) {
+3. int x = 5;
+4. boolean b1 = true;
+5. boolean b2 = false;
+6.
+7. if ((x == 4) && !b2 )
+8. System.out.print(""1 "");
+9. System.out.print(""2 "");
+10. if ((b2 = true) && b1 )
+11. System.out.print(""3 "");
+12. }
+13. }
+What is the result?",2,3,1 2,2 3,,,D,,1,0
+82,"给出以下代码，请问该程序的运行结果是什么？
+class Example{
+public static void main(String args[]){
+  int x=6;
+  double d=7.7;
+  System.out.println((x>d)?99.9:9);
+}
+}",输出9,输出9.0,输出99.9,编译错误。,,,B,,1,0
+94,"You should add the static keyword in the place of ? in Line ________ in the following code:
+
+1 public class Test { 
+2   private int age;
+3 
+4   public ? int square(int n) { 
+5     return n * n;
+6   }
+7
+8   public ? int getAge() {return age;
+9  }
+10}",in line 4,in line 8,in both line 4 and line 8,none,,,A,,1,0
+97,Which method names follow the JavaBeans standard?,addSize,getCust,deleteRep,putDimensions,,,B,A,1,0
+101,"What is the value of times displayed?
+public class Test {
+  public static void main(String[] args) {
+    Count myCount = new Count();
+    int times = 0;
+
+    for (int i=0; i<100; i++)
+      increment(myCount, times);
+    System.out.println(""times = ""+ times);
+  }
+
+  public static void increment(Count c, int times) {
+    c.count++;
+    times++;
+  }
+}
+class Count {
+  int count;
+  Count(int c) {
+    count = c;
+  }
+  Count() {
+    count = 1;
+  }
+}",101,100,1,0,,,D,,1,0
+104,The signature of a method consists of ________,method name,method name and parameter list,"return type, method name, and parameter list",parameter list,,,B,,1,0
+108,"Given:
+class Fizz {
+int x = 5;
+public static void main(String[] args) {
+final Fizz f1 = new Fizz();
+Fizz f2 = new Fizz();
+Fizz f3 = FizzSwitch(f1,f2);
+System.out.println((f1 == f3) + "" "" + (f1.x == f3.x));
+}
+static Fizz FizzSwitch(Fizz x, Fizz y) {
+final Fizz z = x;
+z.x = 6;
+return z;
+} }
+What is the result?",true true,false true,true false,false false,,,A,,1,0
+112,"Given:
+1. public class Frodo extends Hobbit {
+2. public static void main(String[] args) {
+3. Short myGold = 7;
+4. System.out.println(countGold(myGold, 6));
+5. }
+6. }
+7. class Hobbit {
+8. int countGold(int x, int y) { return x + y; }
+9. }
+What is the result?",13,Compilation fails due to multiple errors,Compilation fails due to an error on line 1,Compilation fails due to an error on line 4,,,D,A,1,0
+117,"Analyze the following code:
+class Test { 
+
+public static void main(String[] args) {
+   System.out.println(xMethod((double)5));
+ }
+
+public static int xMethod(int n) {
+   System.out.println(""int"");
+return n;
+ }
+
+public static long xMethod(long n) {
+   System.out.println(""long"");
+   return n;
+ }
+}",The program displays int followed by 5,The program displays long followed by 5,The program runs fine but displays things other than given in a and b,The program does not compile,,,D,B,1,0
+128,"Analyze the following code:
+
+public class Test { 
+  public static void main(String[] args) {
+    int[] x = {1, 2, 3, 4};
+    int[] y = x;
+    x = new int[2];
+    for (int i = 0; i < y.length; i++)
+      System.out.print(y[i] + "" "");
+  }
+}",The program displays 1 2 3 4,The program displays 0 0,The program displays 0 0 3 4,The program displays 0 0 0 0,,,A,B,1,0
+144,"关于以下程序代码的说明正确的是（ ）
+1． class HasStatic{
+2． private static int x=100；
+3． public static void main(String args[ ]){
+4． HasStatic hs1=new HasStatic( );
+5． hs1.x++;
+6． HasStatic hs2=new HasStatic( );
+7． hs2.x++;
+8． hs1=new HasStatic( );
+9． hs1.x++;
+10． HasStatic.x- -;
+11． System.out.println(""x=""+x);
+12． }
+13． }","5行不能通过编译,因为引用了私有静态变量","10行不能通过编译,因为x是私有静态变量","程序通过编译,输出结果为:x=103","程序通过编译,输出结果为:x=102",,,D,,1,0
+152,Which of the following statements are NOT true?,static methods do not have access to the implicit variable called this,A static method may be called without creating an instance of its class,A static method may not be overriden to be non-static,"A static method may not be overloaded
+",,,D,,1,0
+153,Which of the following statements are NOT true?,All of the variables in an interface are implicitly static,All of the variables in an interface are implicitly final,All of the methods in an interface are implicitly abstract,A method in an interface can access class level variables,,,D,C,1,0
+155,Which of the following statements are not true,A default constructor is provided automatically if no constructors are explicitly declared in the class,At least one constructor must always be defined explicitly,The default constructor is a no-arg constructor,A default constructor always exist in class,,,B,D,1,0
+159,"What will happen when you try compiling and running this code? 
+
+public class Ref{  
+  public static void main(String argv[]){ 
+Ref r = new Ref(); 
+r.amethod(r);    
+}   
+ public void amethod(Ref r){ 
+int i=99; multi(r);
+ System.out.println(i);   
+ }    
+public void multi(Ref r){
+ r.i = r.i*2;   
+ }}",Error at compile time,An output of 99,An output of 198,An error at runtime,,,A,,1,0
+160,"What will happen when you compile and run the following code? 
+public class Scope{    
+private int i;    
+public static void main(String argv[]){ 
+Scope s = new Scope(); 
+s.amethod();    }//End of main    
+public static void amethod(){ System.out.println(i);    
+}//end of amethod
+}//End of class",A value of 0 will be printed out,Nothing will be printed out,A compile time error,A compile time error complaining of the scope of the variable i,,,C,,1,0
+164,What modifier should you use on a class so that a class in the same package can access it but a class in a different package cannot access it?,public,private,protected,Use the default modifier,,,D,,1,0
+165,"What is wrong in the following code?
+class TempClass {
+  int i;
+  public void TempClass(int j) {
+    int i = j;
+  }
+}
+public class C {
+  public static void main(String[] args) {
+    TempClass temp = new TempClass(2);
+  }
+}",The program has a compilation error because TempClass does not have a default constructor,The program has a compilation error because TempClass does not have a constructor with an int argument,"The program compiles fine, but it does not run because class C is not public",The program compiles and runs fine,,,B,,1,0
+166,"What is the output of the following code:
+
+public class Test {
+  public static void main(String[] args) {
+    Object o1 = new Object();
+    Object o2 = new Object();
+    System.out.print((o1 == o2) + "" "" + (o1.equals(o2)));
+  }
+}",false false,true true,false true,true false,,,A,,1,0
+172,"Given:
+class CardBoard {
+Short story = 200;
+CardBoard go(CardBoard cb) {
+cb = null;
+return cb;
+}
+public static void main(String[] args) {
+CardBoard c1 = new CardBoard();
+CardBoard c2 = new CardBoard();
+CardBoard c3 = c1.go(c2);
+c1 = null;
+// do Stuff
+} }
+When // doStuff is reached, how many objects are eligible for GC?",0,1,2,3,,,C,,1,0
+173,"Given:
+5. class A { void m() { System.out.println(""outer""); } }
+6.
+7. public class TestInners {
+8. public static void main(String[] args) {
+9. new TestInners().go();
+10. }
+11. void go() {
+12. new A().m();
+13. class A { void m() { System.out.println(""inner""); } }
+14. }
+15. class A { void m() { System.out.println(""middle""); } }
+16. }
+What is the result?",inner,outer,middle,Compilation fails,,,C,A,1,0
+174,"Given:
+3. public class Tour {
+4. public static void main(String[] args) {
+5. Cathedral c = new Cathedral();
+6. // insert code here
+7. s.go();
+8. }
+9. }
+10. class Cathedral {
+11. class Sanctum {
+12. void go() { System.out.println(""spooky""); }
+13. }
+14. }
+Which, inserted independently at line 6, compile and produce the output ""spooky",Sanctum s = c.new Sanctum();,c.Sanctum s = c.new Sanctum();,c.Sanctum s = Cathedral.new Sanctum();,Cathedral.Sanctum s = c.new Sanctum();,,,D,C,1,0
+175,"Given:
+3. public class Navel {
+4. private int size = 7;
+5. private static int length = 3;
+6. public static void main(String[] args) {
+7. new Navel().go();
+8. }
+9. void go() {
+10. int size = 5;
+11. System.out.println(new Gazer().adder());
+12. }
+13. class Gazer {
+14. int adder() { return size * length; }
+15. }
+16. }
+What is the result?",15,21,An exception is thrown at runtime,Compilation fails due to multiple errors,,,B,D,1,0
+180,"Given the declaration Circle[] x = new Circle[10], which of the following statement is most accurate?",x contains an array of ten int values,x contains an array of ten objects of the Circle type,x contains a reference to an array and each element in the array can hold a reference to a Circle object,x contains a reference to an array and each element in the array can hold a Circle object,,,D,,1,0
+186,"Analyze the following code and choose the best answer:
+
+public class Foo {
+  private int x;
+
+  public static void main(String[] args) {
+    Foo foo = new Foo();
+    System.out.println(foo.x);
+  }
+}","Since x is private, it cannot be accessed from an object foo","Since x is defined in the class Foo, it can be accessed by any method inside the class without using an object. You can write the code to access x without creating an object such as foo in this code","Since x is an instance variable, it cannot be directly used inside a main method. However, it can be accessed through an object such as foo in this code","You cannot create a self-referenced object; that is, foo is created inside the class Foo",,,C,,1,0
+190,下以下哪个类能正确编译?【    】,"class k{
+  abstract  void b(){ }
+ }
+","abstract class k{
+   void b(){  }
+ }
+","abstract class k{
+   abstract void b(){}
+}
+","abstract class k{
+  final abstract void b();
+}
+",,,B,,1,0
+191,实现接口用哪个关键字【    】,interface,package,implements,extends,,,C,,1,0
+195,"成员变量的属性有private、public、缺省、protected四种,若类A中有一个成员变量为m,类B为A同一个包的子类,类C为A的不同包的子类,则变量m定义为(  )属性,在B中能访问到m,但是在C中却访问不到.【    】",private,public,缺省,protected,,,C,,1,0
+196,"编译并运行以下程序,以下描述哪个选项是正确的( )
+1: class X{
+2: protected String toString(){
+3: return super.toString();}
+4: }",编译通过运行无异常,编译通过但运行时出错,"行2出错,不能成功编译","不能成功编译,行3出错",,,C,,1,0
+197,"Which statements are most accurate regarding the following classes?
+
+class A {
+  private int i;
+  protected int j;
+}
+
+class B extends A {
+  private int k;
+  protected int m;
+}","An object of B contains data fields i, j, k, m","An object of B contains data fields j, k, m","An object of B contains data fields j, m","An object of B contains data fields  k, m",,,B,,1,0
+201,Which of the following statements are true,constructors cannot be overloaded,constructors cannot be overridden,a constructor can return a primitive or an object reference,constructor code executes from the current class up the hierarchy to the ancestor class,,,B,,1,0
+202,"Which of the following methods can be legally inserted in place of the comment //Method Here ? 
+
+class Base{ public void amethod(int i) { }}public class Scope extends Base{ public static void main(String argv[]){ } //Method Here}",void amethod(int i) throws Exception {},void amethod(long i){},void amethod(int i) { },public void amethod(int i) throws Exception {},,,B,C,1,0
+204,Which is true?,"""X extends Y"" is correct if and only if X is a class and Y is an interface","""X extends Y"" is correct if and only if X is an interface and Y is a class","""X extends Y"" is correct if X and Y are either both classes or both interfaces","""X extends Y"" is correct for all combinations of X and Y being classes and/or interfaces",,,C,D,1,0
+205,"What will happen when you attempt to compile and run this code?
+
+abstract class Base{        
+abstract public void myfunc();        
+public void another(){        System.out.println(""Another method"");        }}
+public class Abs extends Base{        
+public static void main(String argv[]){        Abs a = new Abs();        
+a.amethod();        }        
+public void myfunc(){                System.out.println(""My Func"");                }         
+public void amethod(){        
+myfunc();              
+}}","The code will compile and run, printing out the words ""My Func""",The compiler will complain that the Base class has non abstract methods,The code will compile but complain at run time that the Base class has non abstract methods,"The compiler will complain that the method myfunc in the base class has no body, nobody at all to looove it",,,A,D,1,0
+210,"What is the output of running class C?
+
+class A {
+  public A() {
+    System.out.println(
+      ""The default constructor of A is invoked"");
+  }
+}
+
+class B extends A {
+  public B() {
+    System.out.println(
+      ""The default constructor of B is invoked"");
+  }
+}
+
+public class C  {
+  public static void main(String[] args) {
+    B b = new B();
+  }
+}",Nothing displayed,"""The default constructor of B is invoked""","""The default constructor of A is invoked""""The default constructor of B is invoked""","""The default constructor of B is invoked""""The default constructor of A is invoked""",,,C,,1,0
+218,"Given:
+3. class Alpha {
+4. static String s = "" "";
+5. protected Alpha() { s += ""alpha ""; }
+6. }
+7. class SubAlpha extends Alpha {
+8. private SubAlpha() { s += ""sub ""; }
+9. }
+10. public class SubSubAlpha extends Alpha {
+11. private SubSubAlpha() { s += ""subsub ""; }
+12. public static void main(String[] args) {
+13. new SubSubAlpha();
+14. System.out.println(s);
+15. }
+16. }
+What is the result?",subsub,sub subsub,alpha subsub,alpha sub subsub,,,C,D,1,0
+232,"假设类A是类B的父类,下列声明对象x的语句中不正确的是",A x=new A();,"A x=new B();
+",B x=new B();,B x=new A();,,,D,,1,0
+241,"
+下面的代码是文件Example.java的内容,该内容在编译时将出现一个错误:  
+1) class SubClass extends BaseClass{    
+2) }   3) class BaseClass(){   
+4) String str;  
+5) public BaseClass(){    
+6) System.out.println(""ok"");}   
+7) public BaseClass(String s){   
+8) str=s;}}  
+9) public class Example{   
+10) public void method(){   
+11) SubClass s=new SubClass(""hello"");  
+12) BaseClass b=new BaseClass(""world"");   
+13) }  
+14) }   
+哪一行将引起错误?",9,10,11,12,,,C,,1,0
+242,"What happens when you try to compile and run the following application? Choose all correct options.     
+1. public class Z {       
+2. public static void main(String[] args) {       
+3. new Z();      
+4. }       
+5.       
+6. Z() {       
+7. Z alias1 = this;       
+8. Z alias2 = this;       
+9. synchronized(alias1) {       
+10. try {       
+11. alias2.wait();       
+12. System.out.println(""DONE WAITING"");       
+13. }       
+14. catch (InterruptedException e) {       
+15. System.out.println(""INTERR  UPTED"");       
+16. }       
+17. catch (Exception e) {         
+18. System.out.println(""OTHER EXCEPTION"");       
+19. }      
+20. finally {       
+21. System.out.println (""FINALLY"");       
+22. }       
+23. }       
+24. System.out.println(""ALL DONE"");      
+25. }       
+26. }",The application compiles but doesn't print anything.,"The application compiles and print ""DONE WAITING"".","The application compiles and print ""FINALLY"".","The application compiles and print ""ALL DONE"".","The application compiles and print ""INTERRUPTED""",,A,,1,0
+249,"程序代码如下:    
+1.public  class X{        
+2.publicstaticvoidmain(String[]args){       
+ 3.try{       
+ 4.badMethod();        
+5.System.out.print(""A"");       
+ 6.}       
+ 7.catch(RuntimeExceptionex){       
+ 8.System.out.print(""B"");        
+9.}        
+10.catch(Exceptionex1){        
+11.System.out.print(""C"");       
+ 12.}       
+13.finally{        
+14.System.out.print(""D"");        
+15.}      
+16.System.out.print(""E"");        
+17.}        
+18.publicstaticvoidbadMethod(){        
+19.thrownewRuntimeException();     
+20.}        
+21.}        
+其运行结果为:_____________________________",BD,BCD,BDE,BCDE,ABCDE,Compilation fails.,C,,1,0
+251,"Given:        
+11.try{        
+12.intx=0;        
+13.inty=5/x;        
+14.}catch(Exception e){       
+15.System.out.println(""Exception"");        
+16.}catch(Arithmetic Exception ae){        
+17.System.out.println(""Arithmetic Exception"");       
+18.}     
+19.System.out.println(""finished"");        
+What is the result?",finished,Exception,Compilation fails.,Arithmetic Exception.,,,C,,1,0
+252,"程序代码如下:      
+1.public class Test{       
+ 2.private static int[] x;   
+3.public static void main(String[] args){       
+ 4.System.out.println(x[0]);       
+ 5.}       
+ 6.}       
+其运行结果为:",0,,Compilation fails.,A NullPointerException is thrown at runtime.,An ArrayIndexOutOfBoundsException is thrown at runtime.,,D,,1,0
+255,A Java exception is an instance of __________.,RuntimeException,Exception,Error,Throwable,NumberFormatException,,D,,1,0
+259,"下列代码将抛出_____________________
+publicclassTest{
+public static void main(String[] args) 
+String s = ""abc"";
+System.out.println(s.charAt(3));
+}
+}",ArithmeticException,ArrayIndexOutOfBoundsException,StringIndexOutOfBoundsException,ClassCastException,No exception,,C,,1,0
+261,"What exception type does the following program throw?
+publicclassTest{
+public static void main(String[] args) 
+Object o = null;
+System.out.println(o);
+}
+}",ArithmeticException,ArrayIndexOutOfBoundsException,StringIndexOutOfBoundsException,no Exception,NullPointerException,,D,,1,0
+267,"classTest{
+public static void main(String[] args) {
+try {
+method();
+System.out.println(""After the method call"");
+}
+catch (RuntimeException ex) {
+System.out.println(""RuntimeException"");
+}
+        catch (Exception e) {
+System.out.println(""Exception"");
+}
+}
+
+static void method() throws Exception {
+    try
+    {
+String s = ""5.6"";
+Integer.parseInt(s); // Cause a NumberFormatException
+int i = 0;
+int y = 2 / i;
+System.out.println(""Welcome to Java"");
+}
+    catch (RuntimeException ex) {
+System.out.println(""RuntimeException"");
+}
+    catch (Exception e) {
+  System.out.println(""Exception"");
+}
+}",The program displays RuntimeException twice.,The program displays Exception twice.,The program displays RuntimeException followed by After the method call.,The program displays Exception followed by RuntimeException.,The program has a compilation error.,,C,B,1,0
+269,"What is displayed on the console when running the following program?
+
+classTest{
+public static void main (String[] args) {
+try {
+System.out.println(""Welcome to Java"");
+            int i = 0;
+            int y = 2.0 / i;
+            System.out.println(""Welcome to HTML"");
+}
+finally {
+System.out.println(""The finally clause is executed"");
+}
+}
+}",Welcome to Java.,Welcome to Java followed by The finally clause is executed in the next line.,"The program displays three lines: Welcome to Java, Welcome to HTML, The finally clause is executed.",None of the above.,,,D,,1,0
+309,"If you use the javac ?Xlint:unchecked command to compile a program that contains raw type, what would the compiler do?",report compile error,report warning and generate a class file,report warning without generating a class file,no error and generate a class file,,,B,C,1,0
+310,ArrayList<Integer> 是 ArrayList<Object> 的一个子类?,Yes,No,,,,,B,A,1,0
+313,Is ArrayList<?> same as ArrayList<? extends Object>?,Yes,No,,,,,A,B,1,0
+314,<? super Number>是 Number 的一个父类吗?,Yes,No,,,,,A,B,1,0
+315,"在下列选项中,哪一个可以用来代替下面代码中的YYYYYYYY?
+publicclassWildCardDemo3{
+public static void main(String[] args) {
+GenericStack<String> stack1 = new GenericStack<String>();
+GenericStack<Object> stack2 = new GenericStack<Object>();
+stack2.push(""Java"");
+stack2.push(2);
+stack1.push(""Sun"");
+add(stack1, stack2);
+WildCardDemo2.print(stack2);
+}
+public static <T> void add(GenericStack<T> stack1,
+GenericStack<YYYYYYYY> stack2) {
+while (!stack1.isEmpty())
+stack2.push(stack1.pop());
+}
+}",? super Object,? super T,? extends T,? extends Object,,,B,D,1,0
+316,"Fill in the most appropriate code in the place (1) and (2) in the MyInt class?
+publicclassMyIntimplements___(1)____{
+int id;
+public MyInt(int id) {
+this.id = id;
+}
+public String toString() {
+return String.valueOf(id);
+}
+public int compareTo(___(2)____ arg0) {
+if (id > ((MyInt) arg0).id)
+return 1;
+else if (id < ((MyInt) arg0).id)
+return -1;
+else
+return 0;
+}
+}",(1) Comparable / (2) Object,(1) Comparable<MyInt> / (2) MyInt,(1) Comparable<MyInt> / (2) Object,(1) Comparable / (2) MyInt,,,B,C,1,0
+320,"下列数据类型中,哪一个没有实现Collection接口?",HashSet,TreeSet,ArrayList,LinkedList,Map,,E,D,1,0
+331,"Analyze the following code.
+
+import java.util.*;
+
+public class Test {
+  public static void main(String[] args) throws Exception {
+    Set<String> set = new TreeSet<String>();
+    
+    set.add(""Red"");
+    set.add(""Green"");
+    set.add(""Blue"");
+    
+    System.out.println(set.first());
+  }
+}",The program displays Red,The program displays Blue,The program displays Green,"The program may display Red, Blue, or Green.","The program cannot compile, because the first() method is not defined in Set.",,E,A,1,0
+332,"Analyze the following code.
+
+import java.util.*;
+
+public class Test {
+  public static void main(String[] args) throws Exception {
+    TreeSet<String> set = new TreeSet<String>();
+    
+    set.add(""Red"");
+    set.add(""Yellow"");
+    set.add(""Green"");
+    set.add(""Blue"");
+    SortedSet temp = set.headSet(""Purple"");
+    
+    System.out.println(temp.first());
+  }
+}",The program displays Red,The program displays Blue,The program displays Green,The program displays Yellow,The program displays Purple,,B,E,1,0
+334,Which method do you use to test if an element is in a set or list named x?,(element instanceof List) || (element instanceof Set),x.in(element),x.contain(element),x.contains(element),x.include(element),,D,,1,0
+335,下面哪个方法可以获取set x或者list x中元素的个数?,x.length(),x.count(),x.counts(),x.size(),x.sizes(),,D,,1,0
+336,"下列程序运行结果是___________?
+        List<String> list = new ArrayList<String>();
+        list.add(""A"");
+        list.add(""B"");
+        list.add(""C"");
+        list.add(""D"");
+        for (int i = 0; i < list.size(); i++)
+            System.out.print(list.remove(i));",ABCD,AB,AC,AD,ABC,,C,A,1,0
+337,"Suppose list list1 is [1, 2, 5] and list list2 is [2, 3, 6]. After list1.addAll(list2), list1 is __________.","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]",[2],,,A,,1,0
+343,Which data type should you use if you want to store duplicate elements and be able to insert or delete elements anywhere efficiently.,ArrayList,LinkedList,Vector,Set,Stack,,B,,1,0
+345,"以下代码段输出结果为:()
+
+// Test.java: Define threads using the Thread class
+public class Test {
+  /** Main method */
+  public static void main(String[] args) {
+    new Test();
+  }
+
+  public Test() {
+    // Create threads
+    PrintChar printA = new PrintChar('a', 4);
+    PrintChar printB = new PrintChar('b', 4);
+
+    // Start threads
+    printA.run();
+    printB.run();
+  }
+
+  class PrintChar implements Runnable {
+    private char charToPrint; // The character to print
+    private int times; // The times to repeat
+
+    /** Construct a thread with specified character and number of
+       times to print the character
+     */
+    public PrintChar(char c, int t) {
+      charToPrint = c;
+      times = t;
+    }
+
+    /** Override the run() method to tell the system
+       what the thread will do
+     */
+    public void run() {
+      for (int i = 0; i < times; i++)
+        System.out.print(charToPrint);
+    }
+  }
+}",aaaabbbb,bbbbbaaaaa,a和b将随机出现,ababababab,,,A,,1,0
+347,"Analyze the following code:
+
+public class Test implements Runnable {
+  public static void main(String[] args) {
+    Test t = new Test();
+    t.start();
+  }
+
+  public void run() {
+  }
+}
+the correct answer is ()",The program does not compile because the start() method is not defined in the Test class.,"The program compiles, but it does not run because the start() method is not defined.","The program compiles, but it does not run because the run() method is not implemented.",The program compiles and runs fine.,,,A,,1,0
+349,"Why does the following class have a syntax error?()
+
+import java.applet.*;
+
+public class Test extends Applet implements Runnable {
+   public void init() throws InterruptedException {
+     Thread t = new Thread(this);
+      t.sleep(1000);
+   }
+
+   public synchronized void run() {
+   }
+}",The sleep() method is not invoked correctly; it should be invoked as Thread.sleep(1000).,You cannot put the keyword synchronized in the run() method.,"The init() method is defined in the Applet class, and it is overridden incorrectly because it cannot claim exceptions in the subclass.",The sleep() method should be put in the try-catch block. This is the only reason for the compilation failure.,,,C,A,1,0
+356,"已知有一个多线程类myThread,除run方法外还包含一个方法void disp().以下说法正确的是()",myThread mt=new myThread(); mt.start();mt.disp();运行完线程体run方法后再运行disp()方法,myThread mt=new myThread();mt.disp();mt.start();运行完disp()后才能启动线程体run,myThread mt=new myThread();mt.start();mt.disp();线程体run一定会在disp结束前结束,"myThread mt=new myThread();mt.start();mt.disp();mt.start()和mt.disp()两条命令,哪条放在前面哪条放在后面运行结果一样.",,,B,D,1,0
+360,如何在Condition对象实例上创建线程锁?(),Condition condition = lock.getCondition();,Condition condition = lock.newCondition();,Condition condition = Lock.newCondition();,Condition condition = Lock.getCondition();,,,B,,1,0
+363,Which of the following statements are true?(),"The wait(), notify(), and notifyAll() methods must be invoked from a synchronized method or a synchronized block.","When wait() is invoked, it pauses the thread and releases the lock on the object simultaneously. When the thread is restarted after being notified, the lock is automatically reacquired.",The notify() method can wake only one waiting thread.,An exception would occur if no thread is waiting on the object when the notify() method is invoked on the object.,,,D,E,1,0
+364,"Analyze the following code.the correct answer is ()
+
+// Test.java: Define threads using the Thread class
+import java.util.*;
+
+public class Test {
+  private Stack stack = new Stack();
+  private int i = 0;
+
+  /** Main method */
+  public static void main(String[] args) {
+    new Test();
+  }
+
+  public Test() {
+    // Start threads
+    new Producer().start();
+    new Consumer().start();
+  }
+
+  class Producer extends Thread {
+    public void run() {
+      while (true) {
+          System.out.println(""Producer: put "" + i);
+          stack.push(new Integer(i++));
+          synchronized (stack) {
+            notifyAll();
+          }
+      }
+    }
+  }
+
+  class Consumer extends Thread {
+    public void run() {
+      while (true) {
+        synchronized (stack) {
+          try {
+            while (stack.isEmpty())
+              stack.wait();
+            System.out.println(""Consumer: get "" + stack.pop());
+          }
+          catch (InterruptedException ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+",The program creates two threads: one to add data to the stack and the other to get data from the stack.,The program has a compilation error on the notifyAll() method in the Producer class because it is not invoked from the stack object.,The program will throw an exception because the notifyAll() method in the Producer class is not invoked from the stack object.,"The program has a logic error because the lock obtained by the synchronized block for notifyAll in the Producer class is stack and it should be this (i.e., synchronized (this) { notifyAll(); }).",,,C,A,1,0
+368,"给出以下代码段:  
+1. class MyThread extends Thread { 
+2. public void run() { System.out.println(""AAA""); } 
+3. public void run(Runnable r) { System.out.println(""BBB""); } 
+4. 
+5. public static void main(String[] args) { 
+6. new Thread(new MyThread()).start(); 
+7. } 
+8. } 
+ 
+以下哪些是正确的输出结果?()",AAA,BBB,不能编译通过,没有任何输出结果,,,A,,1,0
+369,"Given: 
+1. public class X implements Runnable { 
+2. private int x; 
+3. private int y; 
+4.  
+5. public static void main(String [] args) { 
+6. X that = new X(); 
+7. (new Thread( that )).start(); 
+8. (new Thread( that )).start(); 
+9. } 
+10. 
+11. public void run() { 
+12. for (;;) { 
+13. synchronized (this) { 
+14. x++; 
+15. y++; 
+16. } 
+17. 
+System.out.println(Thread.currentThread().getName() + 
+18. ""x = "" + x + "", y = "" + 
+y); 
+19. } 
+20. } 
+21. } 
+ 
+What is the result? ()",Compilation fails.,"The program prints pairs of values for x and y that might not always be the same on 
+the same line (for example, ""x = 2, y = 1"").","The program prints pairs of values for x and y that are always the same on the same 
+line (for example, ""x = 1, y = 1""). 
+In addition, each value appears only once (for example, ""x = 1, y = 1"" followed 
+by ""x = 2, y = 2"").","The program prints pairs of values for x and y that are always the same on the same 
+line (for example, ""x = 1, y = 1""). 
+In addition, each value appears only once (for example, ""x = 1, y = 1"" followed 
+by ""x = 2, y = 2""). 
+The thread name at the start of the line shows that only a single thread is actually 
+executing.",,,D,,1,0
+402,"Analyze the following code:
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    Pane pane = new FlowPane();
+    
+    ToggleGroup group = new ToggleGroup();
+    RadioButton rb1 = new RadioButton(""Java"");
+    RadioButton rb2 = new RadioButton(""C++"");
+    pane.getChildren().addAll(rb1, rb2);
+    
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""Test""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for running from the command line.
+   */
+  public static void m",The program displays two radio buttons. The two radio buttons are grouped.,The program displays one radio button with text Java.,The program displays two radio buttons. The two radio buttons are not grouped.,The program displays one radio button with text C++.,,,C,,1,0
+14,_________ is a software that interprets Java bytecode,Java virtual machine,Java compiler,Java debugger,"Java API
+
+",,,A,A,0,0
+29,"下列说法中,不正确的是(   )","一个java源程序经过编译后,得到的文件的扩展名一定是.class","一个java源程序编译通过后,得到的结果文件数也只有一个","一个java源程序只能有一个public class类定义,且源文件的名字与public class的类名相同,扩展名必须是.java",一个java源程序可以包含多个class类,,,B,B,0,0
+32,"若JAVA程序中定义了3个类,编译后可生成()个字节码文件.",4,3,2,1,,,B,B,0,0
+58,"Java的字符类型采用的是Unicode编码方案,每个Unicode码占用(   )个比特位",8,16,32,64,,,B,B,0,0
+61,"Given:
+1. public void go() {
+2. String o = """";
+3. z:
+4. for(int x = 0; x < 3; x++) {
+5. for(int y = 0; y < 2; y++) {
+6. if(x==1) break;
+7. if(x==2 && y==1) break z;
+8. o = o + x + y;
+9. }
+10. }
+11. System.out.println(o);
+12. }
+What is the result when the go() method is invoked?",00,0001,000120,00012021,,,C,C,0,0
+78,"9.给出以下代码，请问该程序的运行结果是什么？
+class Example{ 
+public static void main(String args[]){ 
+ boolean flag=false; 
+ if(flag=true){ 
+   System.out.println(""true""); 
+ } 
+ else{ 
+   System.out.println(""false""); 
+ } 
+}
+}",代码编译失败，if语句错误。,代码编译成功，但在运行期时if语句处抛出异常。,输出true。,输出false。,,,C,C,0,0
+89,"下面代码中，空白处应填 ______________.
+
+public class Test {
+  public static void main(String[] args) {
+    System.out.print(""The grade is "");
+    printGrade(78.5);
+
+    System.out.print(""The grade is "");
+    printGrade(59.5);
+  }
+
+  public static __________ printGrade(double score) {
+    if (score >= 90.0) {
+      System.out.println('A');
+    }
+    else if (score >= 80.0) {
+      System.out.println('B');
+    }
+    else if (score >= 70.0) {
+      System.out.println('C');
+    }
+    else if (score >= 60.0) {
+      System.out.println('D');
+    }
+    else {
+      System.out.println('F');
+    }
+  }
+}",int,String,void,char,,,C,C,0,0
+129,"执行完以下代码int [ ] x = new int[25];后,以下哪项说明是正确的( )",x[24]为0,x[24]未定义,x[25]为0,x[0]为空,,,A,A,0,0
+132,以下说法不正确的是【    】,private修饰的成员变量可以在本类或其本包中子类中使用,"java类可以同时实现多个接口,但只能继承一个父类",static修饰的成员变量可以不经过实例化直接通过类名引用,static不可以和abstract修饰符同时使用,,,A,A,0,0
+139,"下列关于修饰符混用的说法,错误的是( )",abstract不能与final并列修饰同一个类,abstract类中不可以有private的成员,abstract方法必须在abstract类中,static方法中能处理非static的属性,,,D,D,0,0
+150,Which of the following statements are true?,The default constructor has a return type of void,The default constructor takes a parameter of void,The default constructor takes no parameters and always exists,The default constructor is not created if the class has any constructors of its own,,,D,D,0,0
+151,Which of the following statements are true?,The automatic garbage collection of the JVM prevents programs from ever running out of memory,Garbage collection is platform independent,An object becomes eligible for garbage collection when all references denoting it are set to null,A program can force that garbage collection be performed,,,C,C,0,0
+177,"Given two reference variables t1 and t2, if t1.equals(t2) is true, t1 == t2 ____",is always false,is always true,may be true or false,,,,C,C,0,0
+178,"Given two files:
+1. package pkgA;
+2. public class Foo {
+3. int a = 5;
+4. protected int b = 6;
+5. public int c = 7;
+6. }
+3. package pkgB;
+4. import pkgA.*;
+5. public class Baz {
+6. public static void main(String[] args) {
+7. Foo f = new Foo();
+8. System.out.print("" "" + f.a);
+9. System.out.print("" "" + f.b);
+10.System.out.print("" "" + f.c);
+11. }
+12. }
+  What is the result?",5 6 7,5 followed by an exception,Compilation fails with an error on line 7,Compilation fails with an error on line 8 and line 9,,,D,D,0,0
+182,"Assume java.util.Date[] dates = new java.util.Date[10], which of the following statements are true?",dates is null,dates[0] is null,"dates = new Date() is fine, which creates a new Date object and assigns to dates",dates = new java.util.Date[5] is wrong,,,B,B,0,0
+198,Which of the following statements are true?,Methods cannot be overriden to be more private,static methods cannot be overloaded,private methods cannot be overloaded,An overloaded method cannot throw exceptions not checked in the base class,,,A,A,0,0
+200,Which of the following statements are true?,Static methods cannot be overriden to be non static,Static methods cannot be declared as private,Private methods cannot be overloaded,An overloaded method cannot throw exceptions not checked in the base class,,,A,A,0,0
+237,"Given:
+3. class Mammal {
+4. String name = ""furry "";
+5. String makeNoise() { return ""generic noise""; }
+6. }
+7. class Zebra extends Mammal {
+8. String name = ""stripes "";
+9. String makeNoise() { return ""bray""; }
+10. }
+11. public class ZooKeeper {
+12. public static void main(String[] args) { new ZooKeeper().go(); }
+13. void go() {
+14. Mammal m = new Zebra();
+15. System.out.println(m.name + m.makeNoise());
+16. }
+17. }
+What is the result?",furry bray,stripes bray,furry generic noise,stripes generic noise,,,A,A,0,0
+239,"Given the following code
+class Base {}
+class Agg extends Base{
+        public String getFields(){
+         String name =  ""Agg"";
+        return name;
+        }
+}
+public class Avf{
+public static void main(String argv[]){
+        Base a = new Agg();
+        //Here
+        }
+}
+What code placed after the comment //Here will result in calling the getFields method resulting in the output of the string ""Agg""?",System.out.println(a.getFields());,System.out.println(a.name);,System.out.println((Base) a.getFields());,System.out.println( ((Agg) a).getFields());,,,D,D,0,0
+248,Which statement is true?,A try statement must have at least one corresponding catch block.,Multiple catch statements can catch the same class of exception more than once.,"An Error that might be thrown in a method must be declared as thrown by that method, or be handled within that method.","Except in case of VM shutdown, if a try block starts to execute, a corresponding finally block will always start to execute.","Except in case of VMshutdown, if a try block starts to execute, a corresponding finally block must always run to completion.",,E,E,0,0
+250,"Given:           
+1.public class X{        
+2.public static void main(String[] args){        
+3.try{        
+4.badMethod();        
+5.System.out.print(""A"");        
+6.}        
+7.catch(Exception ex){        
+8.System.out.print(""C"");        
+9.}        
+10.finally{        
+11.System.out.print(""B"");        
+12.}      
+13.System.out.print(""D"");        
+14.}        
+15.public static void badMethod(){        
+16.throw newError();        
+17.}        
+18.}        
+What is the result?",ABCD,Compilation fails.,C is printed before exiting with an error message.,BC is printed before exiting with an error message.,BCD is printed before exiting with an error message.,,B,B,0,0
+260,"下列代码将抛出_____________________
+publicclassTest{
+public static void main(String[] args) 
+Object o = new Object();
+String d = (String)o;
+}
+}",ArithmeticException,ArrayIndexOutOfBoundsException,StringIndexOutOfBoundsException,ClassCastException,No exception,,D,D,0,0
+274,"What is displayed on the console when running the following program?
+
+class Test {
+  public static void main(String[] args) {
+    try {
+      method();
+      System.out.println(""After the method call"");
+    }
+    catch (RuntimeException ex) {
+      System.out.println(""RuntimeException"");
+    }
+    catch (Exception ex) {
+      System.out.println(""Exception"");
+    }
+  }
+
+  static void method() throws Exception {
+    try {
+      String s = ""5.6"";
+      Integer.parseInt(s); // Cause a NumberFormatException
+
+      int i = 0;
+      int y = 2 / i;
+      System.out.println(""Welcome to Java"");
+    }
+    catch (NumberFormatException ex) {
+      System.out.println(""NumberFormatException"");
+      throw ex;
+    }
+    catch (RuntimeException ex) {
+      System.out.println(""RuntimeException"");
+    }
+  }
+}
+
+",The program displays NumberFormatException twice.,The program displays NumberFormatException followed by After the method call.,The program displays NumberFormatException followed by RuntimeException.,The program has a compilation error.,,,C,C,0,0
+308,"If you use the javac command to compile a program that contains raw type, what would the compiler do?",report syntax error,report warning and generate a class file,report warning without generating a class file,no error and generate a class file,report warning and generate a class file if no other errors in the program.,,E,E,0,0
+311,ArrayList<Integer> 是 ArrayList<?>的一个子类吗?,Yes,No,,,,,A,A,0,0
+312,ArrayList<Integer>类是ArrayList<? extends Number>的一个子类?,Yes,No,,,,,A,A,0,0
+321,Which of the data types below could be used to store elements in their natural order based on the compareTo method?,HashSet,TreeSet,LinkedHashSet,Collection,Set,,B,B,0,0
+322,"What is the output for the following code?
+
+import java.util.*;
+public class Test {
+    public static void main(String[] args) {
+        Set<A> set = new HashSet<A>();
+        set.add(new A());
+        set.add(new A());
+        set.add(new A());
+        set.add(new A());
+        System.out.println(set);
+    }
+}
+
+class A  {
+    int r = 1;
+
+    public String toString() {
+        return r + """";
+    }
+
+    public boolean equals(Object o) {
+        return this.r == ((A)o).r;
+    }
+
+    public int hashCode() {
+        return r;
+    }
+}
+
+
+",[1],"[1, 1]","[1, 1, 1]","[1, 1, 1, 1]",,,A,A,0,0
+326,"Suppose set s1 is [1, 2, 5] and set s2 is [2, 3, 6]. After s1.retainAll(s2), s1 is __________.","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]",[2],,,D,D,0,0
+328,"If you want to store non-duplicated objects in the order in which they are inserted, you should use ____________.",HashSet,LinkedHashSet,TreeSet,ArrayList,LinkedList,,B,B,0,0
+339,"Suppose a list contains {""red"", ""green"", ""red"", ""green""}. What is the list after the following code?
+
+    String element = ""red"";
+    for (int i = list.size() - 1; i >= 0; i--)
+      if (list.get(i).equals(element))
+        list.remove(element);","{""red"", ""red"", ""green""}","{""red"", ""green""}","{""green""}",{},,,C,C,0,0
+340,方法_________________将为list对象lst中的元素排序.,lst.sort(),Collections.sort(lst),Arrays.sort(lst),"new LinkedList(new String[]{""red"", ""green"", ""blue""})",,,B,B,0,0
+341,"为了从一个数组中产生一个list,下面哪个表达式是正确的?","new List({""red"", ""green"", ""blue""})","new List(new String[]{""red"", ""green"", ""blue""})","Arrays.asList(new String[]{""red"", ""green"", ""blue""})","new ArrayList(new String[]{""red"", ""green"", ""blue""})","new LinkedList(new String[]{""red"", ""green"", ""blue""})",,C,C,0,0
+342,"为了发现一个字符串数组(例如 String[] names = {""red"", ""green"", ""blue""})中最大的对象,可以使用方法____________________.",Arrays.max(names),Arrays.sort(names),Collections.max(names),Collections.max(Arrays.asList(names)),None of the above,,D,D,0,0
+352,"When you run the following program, what will happen?()
+
+public class Test extends Thread {
+  public static void main(String[] args) {
+    Test t = new Test();
+    t.start();
+    t.start();
+  }
+
+  public void run() {
+    System.out.println(""test"");
+  }
+}",Nothing is displayed.,The program displays test twice.,The program displays test once.,An illegal java.lang.IllegalThreadStateException may be thrown because you just started thread and thread might have not yet finished before you start it again.,,,D,D,0,0
+353,"Java.lang.Thread类中的以下方法,哪个是静态的?()",run(),sleep(long),start(),join(),,,B,B,0,0
+359,Which of the following are correct statements to create a Lock so the longest-wait thread will obtain the lock first?(),Lock lock = new Lock();,Lock lock = new ReentrantLock();,Lock lock = new ReentrantLock(true);,Lock lock = new ReentrantLock(false);,,,C,C,0,0
+367,"public class ThreadTest extends Thread {
+        int time;
+        public ThreadTest (String name,int t) {
+                //填写正确的选项
+        }
+        public void run() {
+                //相关代码省略
+        }
+        public static void main(String[] agrs) {
+                ThreadTest test = new ThreadTest (""线程001"",500);
+        }
+}
+能够正确为test线程设置名称的是().",this(name);,"this(name,t);",Thread.currentThread().setName(name);,super(name);,,,D,D,0,0
+370,Which statement is true?(),"To call the wait() method, a thread most own the lock of the current thread.","To call the wait() method, a thread must own the lock of the object on which the call is to be made.","To call the join() method, a thread must own the lock of the object on which the call is to be made.","To call the sleep() method, a thread must own the lock of the object which the call 
+is to be made.",,,B,B,0,0
+371,What can cause a thread to become non-runnable? (),Exiting from a synchronized block.,Calling the wait method on an object.,Calling the notify method on an object.,Calling the notifyAll method on an object.,,,B,B,0,0
+372,Which of the following statements are true?,A Pane can be placed in a Control.,A Node can be placed in a Scene.,A Node can be placed in a Pane.,A Shape can be placed in a Control.,,,A,A,0,0
+373,"What is the output of the following code?
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
+public class Test {
+ public static void main(String[] args) { 
+  IntegerProperty d1 = new SimpleIntegerProperty(1);
+  IntegerProperty d2 = new SimpleIntegerProperty(2);
+  d1.bind(d2);
+  System.out.print(""d1 is "" + d1.getValue() 
+   + "" and d2 is "" + d2.getValue());
+  d2.setValue(3);
+  System.out.println("", d1 is "" + d1.getValue() 
+   + "" and d2 is "" + d2.getValue());
+ }
+
+","d1 is 1 and d2 is 2, d1 is 3 and d2 is 3","d1 is 2 and d2 is 2, d1 is 3 and d2 is 3","d1 is 1 and d2 is 2, d1 is 1 and d2 is 3","d1 is 2 and d2 is 2, d1 is 2 and d2 is 3",,,B,B,0,0
+374,"What is the output of the following code?
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
+public class Test {
+ public static void main(String[] args) { 
+  IntegerProperty d1 = new SimpleIntegerProperty(1);
+  IntegerProperty d2 = new SimpleIntegerProperty(2);
+  d1.bindBidirectional(d2);
+  System.out.print(""d1 is "" + d1.getValue() 
+   + "" and d2 is "" + d2.getValue());
+  d1.setValue(3);
+  System.out.println("", d1 is "" + d1.getValue() 
+   + "" and d2 is "" + d2.getValue());
+ }
+}","d1 is 2 and d2 is 2, d1 is 3 and d2 is 3","d1 is 1 and d2 is 2, d1 is 1 and d2 is 3","d1 is 1 and d2 is 2, d1 is 3 and d2 is 3","d1 is 2 and d2 is 2, d1 is 2 and d2 is 3",,,A,A,0,0
+375,"Analyze the following code:
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.geometry.Insets;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+public class Test extends Application {
+ @Override // Override the start method in the Application class
+ public void start(Stage primaryStage) {
+  // Create a pane to hold the image views
+  Pane pane = new HBox(10);
+  pane.setPadding(new Insets(5, 5, 5, 5));
+  Image image = new Image(""www.cs.armstrong.edu/liang/image/us.gif"");
+  pane.getChildren().addAll(new ImageView(image), new ImageView(image));
+ 
+  // Create a scene and place it in the stage
+  Scene scene = new Scene(pane);
+  primaryStage.setTitle(""ShowImage""); // Set the stage title
+  primaryStage.setScene(scene); // Place the scene in the stage
+  primaryStage.show(); // Display the stage
+ }
+ 
+ /**
+ * The main method is only needed for the IDE with limited
+ * JavaFX su",The image object cannot be shared by two ImageViews.,The program runs fine and displays two images.,The addAll method needs to be replaced by the add method.,"new Image(""www.cs.armstrong.edu/liang/image/us.gif"") must be replaced by new Image(""http://www.cs.armstrong.edu/liang/image/us.gif"").",,,D,D,0,0
+0,一个字节包含 ________ 位,4,8,12,16,,,B,,0,408
+1,Which of the following statements is correct?,Every line in a program must end with a semicolon,Every statement in a program must end with a semicolon,Every comment line must end with a semicolon,Every method must end with a semicolon,,,B,,0,0
+2,java字节码文件的后缀是,.java,.obj,.class,.exe,,,C,,0,0
+3,Java ___________ can run from a Web browser,applications,applets,servlets,Micro Edition programs,,,B,,0,0
+4,Every statement in Java ends with ____,a semicolon (;),"a comma (,)",a period (.),an asterisk (*),,,A,,0,0
+5,Computer can execute the code in ____________.,assembly language,high-level language,machine language,none of the above,,,C,,0,0
+6,___________ translates high-level language program into machine language program,An assembler,A compiler,CPU,The operating system,,,B,,0,0
+8,Which JDK command is correct to run a Java application in ByteCode.class?,java ByteCode,java ByteCode.class,javac ByteCode.java,javac ByteCode,,,A,,0,0
+9,"Suppose you define a Java class as follows:
+public class Test {
+}
+In order to compile this program, the source code should be stored in a file named",Test.java,Any name with extension .java,Test.class,test.java,,,A,,0,0
+11,main函数声明正确的是,public static void main(string[] args),public static void Main(String[] args),public static void main(String[] args),public static main(String args[]),,,C,,0,0
+12,JDK是( ),一种全新的程序语言,一种程序开发辅助工具,"一种由Java写成的,并支持Java Applet的浏览器",一种游戏软件,,,B,,0,0
+13,"JDK命令编译Test.java,正确的是?",java Test,java Test.java,javac Test.java,javac Test,,,C,,0,0
+15,________ is Architecture-Neutral体系结构,VB,c++,c,java,,,D,,0,0
+19,"Java语言具有许多优点和特点,哪个反映了Java程序并行机制的特点?(",安全性,多线性,跨平台,可移植,,,B,,0,0
+20,"下列关于Java语言的特点,描述错误的是(  )
+
+",Java是跨平台的编程语言,"Java支持分布式计算
+",Java是面向过程的编程语言,Java支持多线程,,,C,,0,0
+21,"在 Java 中,由Java编译器自动导入,而无需在程序中用import导入的包是(       )",ava.applet,java.awt,java.util,java.lang,,,D,,0,0
+22,"运行下段代码后,z的结果为??   
+int a = 1, z=0;
+ do {
+   ++z; 
+   } while(a < 0)",0,1,2,3,,,B,,0,0
+23,"运行下段代码后,x的结果为?
+int x = 3;
+int y = 2;
+x *= y + 1;",6,7,8,9,,,D,,0,0
+24,"有如下程序段:
+int total = 0;
+for ( int i = 0; i < 4; i++ ){
+if ( i == 1) continue;
+if ( i == 2) break;
+total += i;
+}
+则执行完该程序段后total的值为:",0,1,3,6,,,A,,0,0
+25,有关类的说法正确的是? ( ),"类具有封装性,所以类的数据是不能被访问的","类具有封装性,但可以通过类的公共接口访问类中的数据","声明一个类时,必须用public修饰符","每个类中,必须有main方法,否则程序无法运行",,,B,,0,0
+26,以下关于构造函数的描述错误的是,构造函数的返回类型只能是void型,"构造函数是类的一种特殊函数,它的方法名必须与类名相同",构造函数的主要作用是完成对类的对象的初始化工作,"一般在创建新对象时,系统会自动调用构造函数",,,A,,0,0
+27,下述概念中不属于面向对象方法的是,对象、消息,继承、多态,类、封装,过程调用,,,D,,0,0
+28,"下面的选项中,哪一项不属于""汽车类""的行为",启动,刹车,减速,速度,,,D,,0,0
+30,下列说法正确的有( ),class中的constructor不可省略,"constructor必须与class同名,但方法不能与class同名",constructor在一个对象被new时执行,一个class只能定义一个constructor,,,C,,0,0
+31,"设已声明了一个类A的两个对象a1,a2,为了初始化 a1和a2,下面语句正确的是","a1,a2=new A(); 
+",a1=A.new(); a2=A.new();,"a1=new();a2=new(); 
+","a1=new A();a2=new A(); 
+",,,D,,0,0
+33,哪个关键字修饰的变量和方法不能从其他类访问?,protected,public,private,default,,,C,,0,0
+34,哪个关键字声明一个常量?,protected,static,final,default,,,C,,0,0
+35,哪个表达式的结果为0.5?,1 / 2,(double) (1 / 2),(double) 1 / 2,1 \ 2,,,C,,0,0
+36,不是构造函数特点的是(      ),构造函数与类名相同,构造函数可带参数也可不带,构造函数带有返回类型,构造函数主要完成对类对象的初始工作,,,C,,0,0
+37,"编译Java  Application 源程序文件将产生相应的字节码文件,这些字节码文件的扩展名为(      ).",.java,.class,.obj,.jdk,,,B,,0,0
+38,"You have a public class called myclass with the main method defined as follows
+public static void main(String parm[]){
+    System.out.println(parm[0]);
+}
+If you attempt to compile the class and run the program as follows
+java myclass hello
+What will happen?","Compile time error, main is not correctly defined","Run time error, main is not correctly defined",Compilation and output of  java,Compilation and output of hello,,,D,,0,0
+39,Which specifier essentially declares a variable a global variable?,protected,static,final,default,,,B,,0,0
+40,Which of the following statement prints smith\exam1\test.txt?,"System.out.println(""smith\exam1\test.txt"");","System.out.println(""smith\\exam1\\test.txt"");","System.out.println(""smith\""exam1\""test.txt"");","System.out.println(""smith""\exam1""\test.txt"");",,,B,,0,0
+41,Which of the following is the correct expression of character 4?,4,"""4""",'4','\0004',,,C,,0,0
+42,Which of the following is not an advantage of using methods?,Using methods makes program run faster,Using methods makes reusing code easier,Using methods makes programs easier to read,Using methods hides detailed implementation from the clients,,,A,,0,0
+43,"Which of the following can be placed in the blank line in the following code?
+public class Test {
+  private static int id;
+  
+  public static void m1() {
+    _____.id = 45;
+  }
+}",this,Test,test,super,,,B,,0,0
+44,"Which of the following can be placed in the blank line in the following code?
+public class Test {
+  private int id;
+  
+  public void m1() {
+    _____.id = 45;
+  }
+}",this,Test,test,super,,,A,,0,0
+46,"What is the value of b after execution?  
+int x, b=0;
+ for(x = 0; x <= 5; ++x){
+   if (x == 2) break;
+    ++b;
+ }",0,1,2,3,,,C,,0,0
+47,"What is the value of b after execution?   
+int x, b=0;
+ for(x = 0; x <= 5; ++x){
+   if (x == 2) continue;
+    ++b;
+ }",5,4,3,2,,,A,,0,0
+48,"What is the printout of the following code:
+double x = 5.5;
+int y = (int)x;
+System.out.println(""x is "" + x + "" and y is "" + y);",x is 5 and y is 6,x is 6.0 and y is 6.0,x is 6 and y is 6,x is 5.5 and y is 5,,,D,,0,0
+50,"To improve readability and maintainability, you should declare _________ instead of using 
+literal values such as 3.14159.",variables,methods,constants,classes,,,C,,0,0
+51,"To declare a constant MAX_LENGTH inside a method with value 99.98, you write",final MAX_LENGTH = 99.98;,final float MAX_LENGTH = 99.98;,double MAX_LENGTH = 99.98;,final double MAX_LENGTH = 99.98;,,,D,,0,0
+52,"To add number to sum, you write",number += sum;,number = sum + number;,sum = Number + sum;,sum += number;,,,D,,0,0
+53,"The default value for data field of a boolean type, numeric（数值） type, object type is ___________, respectively","true, 1, Null","false, 0, null","true, 0, null","true, 1, null",,,B,,0,0
+54,"Test.java程序代码如下:
+1) public class Test{
+2) public static void main(String[] args){
+3) System.out.println(args[1]);
+4) }
+5) }
+以上程序编译后用java Test 2 3 4 5运行的输出结果是什么? (    )",2,3,4,5,,,B,,0,0
+55,"System.out.println(""5"" + 2);的输出结果应该是",52,7,2,编译错,,,A,,0,0
+56,Suppose x is a char variable with a value 'b'. What is the printout of the statement System.out.println(++x)?,a,b,c,d,,,C,,0,0
+57,Main()方法的返回类型是:,boolean,void,String,static,,,B,,0,0
+59,"In the program segment below, which line prints?  
+int x=3, y=5; 
+if (x < y) 
+System.out.println(""X= ""+x); 
+System.out.println(""Y= ""+y);",The first one,The second one,Both,Neither,,,C,,0,0
+60,"How many times will the print statement execute?  
+for (x=0; x<=5; ++x) {
+   System.out.println(""X= ""+x); 
+   --x;}",3,4,5,An infinite number of times,,,D,,0,0
+62,"Given:
+1. public class TestString1 {
+2. public static void main(String[] args) {
+3. String str = ""420"";
+4. str += 42;
+5. System.out.print(str);
+6. }
+7. }
+What is the output?",42,420,462,42042,,,D,,0,0
+64,"Analyze the following code:
+public class Test {
+  public static void main(String[] args) {
+    double radius;
+    final double PI= 3.15169;
+    double area = radius * radius * PI;
+    System.out.println(""Area is "" + area);
+  }
+}",The program has compile errors because the variable radius is not initialized,The program has a compile error because a constant PI is defined inside a method,The program has no compile errors but will get a runtime error because radius is not initialized,The program compiles and runs fine,,,A,,0,0
+65,An object is an instance of a __________.,program,class,method,data,,,B,,0,0
+66,A variable that is declared inside a method is called ________ variable,a static,an instance,a local,a global,,,C,,0,0
+67,__________ represents an entity（实体） in the real world that can be distinctly identified.,A class,An object,A method,A data field,,,B,,0,0
+68,________ is invoked to create an object,A constructor,The main method,A method with a return type,A method with the void return type,,,A,,0,0
+69,(double)(5/2)的值为?,2,2.0,2.5,3,,,B,,0,0
+70,"To assign a value 1 to variable x, you write",1 = x;,x = 1;,x := 1;,x == 1;,,,B,,0,0
+71,45 / 4的值为?,10,11,11.25,12,,,B,,0,0
+72,假定x是1，经过表达式 (x>=1)&&(x++>1) 运算后，表达式和x的值分别是多少？,"true, 1","true, 2","false, 1","false, 2",,,D,,0,0
+73,编写当体重weight大于50或身高height大于160，但不能同时满足这两个条件时，结果为true的布尔表达式。,weight>50 && height>160,weight>50 || height>160,weight>50 ^ height>160,weight>50 | height>160,,,C,,0,0
+74,下列不属于条件控制语句的是（  ）,for语句,if语句,if..else语句,switch语句,,,A,,0,0
+75,"按运算符操作数的数目划分,运算符 ? : 的类型是（   ）",三元,二元,四元,一元,,,A,,0,0
+76,"6.下面代码的运行输出结果是
+public class example{
+  Public static void main(String args[]){
+    int x=0;
+    if(x>0) x=1;
+    switch(x){
+     case 1: System.out.print(1); 
+     case 0: System.out.print(0);
+     case 2: System.out.print(2); 
+             break;
+     case 3: System.out.print(3); 
+     default: System.out.print(4); 
+             break;
+    }
+  }
+}",02,102,0234,10234,,,A,,0,0
+77,"执行如下程序代码后，c的值是(  )
+　　a=0;c=0;
+　　do{
+　　--c;
+　　a=a-1;
+　　}while(a>0);",0,1,-1,死循环,,,C,,0,0
+79,"给出以下代码，请问该程序的运行结果是什么？
+class Example{
+public static void main(String args[]){
+  int m=0;
+  while(m++<2)
+    System.out.print(m);
+}
+}",01,12,23,抛出异常。,,,B,,0,0
+80,"给出以下代码，请问表达式grade==70在以下两条语句中是否执行？
+1.      boolean passingScore =false && grade==70; 
+2.      boolean passingScore = false & grade==70; 
+请选择一个正确答案：",语句1﹑2中均获得执行。,语句1﹑2中均未获得执行。,语句1中均获得执行，语句2中未获得执行。,语句2中均获得执行，语句1中未获得执行。,,,D,,0,0
+81,"给出以下代码，请问该程序的运行结果是什么？
+class Example {
+public static void main (String args []){
+         int Output = 10;
+         Boolean b1 = false;
+         if (b1 = true)&&((Output = 10)==20)){
+             System .out .println(“We are equal!”+Output);
+         }else{
+             System .out .println(“Not equal!”+Output);
+         }
+}
+}",代码编译失败。,输出We are equal!10,输出Not equal!20,输出Not equal!10,,,D,,0,0
+83,"下列代码中? 
+if(x>O){System.out.println(""first"");} 
+else if(x>-3){System.out.println(""second"");}
+else{System.out.println(""third""); } 
+要求打印字符串为“second”时，x的取值范围是(   )。",x<=0且x>-3,x>0,x>-3,x<=-3,,,A,,0,0
+84,在switch(expression)语句中，expression的数据类型不能是(  )。,double,char,byte,short,,,A,,0,0
+85,boolean x=false; for(int y=0; !x&&y<=5; y++)语句执行循环的次数是(      )。,0,5,6,无穷,,,C,,0,0
+86,"在调用方法时,若要使方法改变实参的值,可以",用基本数据类型作为参数,用对象作为参数,A和B都对,A和B都不对,,,B,,0,0
+87,"下述哪一组方法,是一个类中方法重载的正确写法? (    )","int addValue( int a, int b ){return a+b;}
+float addValue ( int b, int a) {return a+b;}","int addValue (int a, int b ){value=a+b; }
+float addValue ( int a, int b) {return (float)(a+b);}","int addValue( int a, int b ){return a+1;}
+int addValue (  int b) {return ++b;}","int addValue( int a, int b ) {return a+b;}
+int addValue ( int x, int y ) {return x+y;}",,,C,,0,0
+88,下述哪个说法是不正确的?(     ),"局部变量在使用之前无需初始化,因为有该变量类型的默认值","类成员变量由系统自动进行初始化,也无需初始化",参数的作用域就是所在的方法,"for语句中定义的变量,当for语句执行完时,该变量就消亡了",,,A,,0,0
+90,下列方法头中哪一个不与其他方法形成重载(overload)关系?,void mmm(),void mmm(int i),void mmm(String s),int mm(),,,D,,0,0
+91,若在某一个类定义中定义有如下的方法:abstract void performDial( );该方法属于,接口方法,最终方法,抽象方法,空方法,,,C,,0,0
+92,面哪个函数是public void aMethod(){...}的重载函数?,"void aMethod( ){...}
+","public int aMethod(){...}
+","public void aMethod ( ){...}
+","public void aMethod ( int m){...}
+",,,D,,0,0
+93,"假设A类有如下定义,设a是A类的一个实例,下列语句调用哪个是错误的?
+class A
+
+{ int i;
+
+static String s;
+void method1() { }
+static void method2() { }
+}",System.out.println(a.i);,a.method1();,A.method1();,A.method2();,,,C,,0,0
+95,Which of the following should be defined as a void method?,Write a method that prints integers from 1 to 100,Write a method that returns a random integer from 1 to 100,Write a method that checks whether current second is an integer from 1 to 100,Write a method that converts an uppercase letter to lowercase,,,A,,0,0
+96,Which of the following are legal declaration and definition of a method,void method() {};,void method(void) {};,method() {};,method(void) {};,,,A,,0,0
+98,"When you invoke a method with a parameter, the value of the argument is passed to the parameter. This is referred to as _______",method invocation,pass by value,pass by reference,pass by name,,,B,,0,0
+99,"When invoking a method with an object argument, ___________ is passed",the contents of the object,a copy of the object,the reference of the object,"the object is copied, then the reference of the copied object",,,C,,0,0
+100,"What will happen if you try to compile and run the following code 
+
+public class MyClass {    
+public static void main(String arguments[]) { 
+amethod(arguments);    }   
+ public void amethod(String[] arguments) {
+ System.out.println(arguments); 
+System.out.println(arguments[1]);    
+}}",error Can't make static reference to void amethod,error method main not correct,error array must include parameter,amethod must be declared with String,,,A,,0,0
+102,"What is the printout of the second println statement in the main method?
+public class Foo {
+  int i;
+  static int s;
+
+  public static void main(String[] args) {
+    Foo f1 = new Foo();
+    System.out.println(""f1.i is "" + f1.i + "" f1.s is "" + f1.s);
+    Foo f2 = new Foo();
+    System.out.println(""f2.i is "" + f2.i + "" f2.s is "" + f2.s);
+  }
+
+  public Foo() {
+    i++;
+    s++;
+  }
+}",f2.i is 1 f2.s is 1,f2.i is 1 f2.s is 2,f2.i is 2 f2.s is 2,f2.i is 2 f2.s is 1,,,B,,0,0
+103,"What is the printout of the second println statement in the main method?
+public class Foo {
+  int i;
+  static int s;
+
+  public static void main(String[] args) {
+    Foo f1 = new Foo();
+    System.out.println(""f1.i is "" + f1.i + "" f1.s is "" + f1.s);
+    Foo f2 = new Foo();
+    System.out.println(""f2.i is "" + f2.i + "" f2.s is "" + f2.s);
+  }
+
+  public Foo() {
+    i++;
+    s++;
+  }
+}",f2.i is 1 f2.s is 1,f2.i is 1 f2.s is 2,f2.i is 2 f2.s is 2,f2.i is 2 f2.s is 1,,,B,,0,0
+105,"Suppose your method does not return any value, which of the following keywords can be used as a return type?",void,int,double,None of the above,,,A,,0,0
+106,"Suppose you wish to provide an accessor method for a boolean property finished, what signature of the method should be?",public void getFinished(),public boolean getFinished(),public boolean isFinished(),public void isFinished(),,,C,,0,0
+107,"Suppose the xMethod() is invoked from a main method in a class as follows, xMethod() is _________ in the class.
+
+public static void main(String[] args) {
+  xMethod();
+}",a static method,an instance method,a static method or an instance method,an Object method,,,A,,0,0
+109,"Given:
+3. public class Dark {
+4. int x = 3;
+5. public static void main(String[] args) {
+6. new Dark().go1();
+7. }
+8. void go1() {
+9. int x;
+10. go2(++x);
+11. }
+12. void go2(int y) {
+13. int x = ++y;
+14. System.out.println(x);
+15. }
+16. }
+What is the result?",3,4,5,Compilation fails,,,D,,0,0
+110,"Given:
+1. public class Yippee {
+2. public static void main(String [] args) {
+3. for(int x = 1; x < args.length; x++) {
+4. System.out.print(args[x] + "" "");
+5. }
+6. }
+7. } and two separate command line invocations: java Yippee java Yippee 1 2 3 4 What is the result?",No output is produced. 1 2 3,No output is produced. 2 3 4,No output is produced. 1 2 3 4,An exception is thrown at runtime. 1 2 3,,,B,,0,0
+111,"Given:
+1. public class Pass {
+2. public static void main(String [] args) {
+3. int x = 5;
+4. Pass p = new Pass();
+5. p.doStuff(x);
+6. System.out.print("" main x = "" + x);
+7. }
+8.
+9. void doStuff(int x) {
+10. System.out.print("" doStuff x = "" + x++);
+11. }
+12. }
+What is the result?",doStuff x = 6 main x = 6,doStuff x = 5 main x = 5,doStuff x = 5 main x = 6,doStuff x = 6 main x = 5,,,B,,0,0
+113,"Given:
+1. public class Batman {
+2. int squares = 81;
+3. public static void main(String[] args) {
+4. new Batman().go();
+5. }
+6. void go() {
+7. incr(++squares);
+8. System.out.println(squares);
+9. }
+10. void incr(int squares) { squares += 10; }
+11. }
+What is the result?",81,82,91,92,,,B,,0,0
+114,"Given:
+1. class Voop {
+2. public static void main(String[] args) {
+3. doStuff(1);
+4. doStuff(1,2);
+5. }
+6. // insert code here
+7. }
+Which, inserted independently at line 6, will compile?",static void doStuff(int... doArgs) { },static void doStuff(int[] doArgs) { },static void doStuff(int doArgs...) { },"static void doStuff(int... doArgs, int y) { }",,,A,,0,0
+115,"Given:
+1. class Voop {
+2. public static void main(String[] args) {
+3. doStuff(1);
+4. doStuff(1,2);
+5. }
+6. // insert code here
+7. }
+Self Test Answers 79
+80 Chapter 1: Declarations and Access Control
+Which, inserted independently at line 6, will compile?",static void doStuff(int... doArgs) { },static void doStuff(int[] doArgs) { },static void doStuff(int doArgs...) { },"static void doStuff(int... doArgs, int y) { }",,,A,,0,0
+116,"Given the following code what will be output? 
+
+public class Pass{    
+static int j=20;    
+public static void main(String argv[]){
+ int i=10; 
+Pass p = new Pass(); 
+p.amethod(i); 
+System.out.println(i); 
+System.out.println(j);   
+ }   
+ public void amethod(int x){ 
+x=x*2; j=j*2;    
+}}",Error: amethod parameter does not match variable,20 and 40,10 and 40,10 and 20,,,C,,0,0
+118,"Analyze the following code:
+
+public class Test {
+  public static void main(String[] args) {
+    System.out.println(xMethod(5, 500L));
+  }
+  public static int xMethod(int n, long l) {
+    System.out.println(""int, long"");
+    return n;
+  }
+  public static long xMethod(long n, long l) {
+    System.out.println(""long, long"");
+    return n;
+  }
+}","The program displays int, long followed by 5","The program displays long, long followed by 5",The program runs fine but displays things other than 5,The program does not compile because the compiler cannot distinguish which xmethod to invoke,,,A,,0,0
+119,"Analyze the following code.
+
+public class Test {
+  public static void main(String[] args) {
+    System.out.println(max(1, 2));
+  }
+
+  public static double max(int num1, double num2) {
+    System.out.println(""max(int, double) is invoked"");
+
+    if (num1 > num2)
+      return num1;
+    else
+      return num2;
+  }
+  
+  public static double max(double num1, int num2) {
+    System.out.println(""max(double, int) is invoked"");
+
+    if (num1 > num2)
+      return num1;
+    else
+      return num2;
+  }
+}",The program cannot compile because you cannot have the print statement in a non-void method,The program cannot compile because the compiler cannot determine which max method should be invoked,"The program runs and prints 2 followed by ""max(int, double)"" is invoked","The program runs and prints 2 followed by ""max(double, int)"" is invoked",,,B,,0,0
+120,"Analyze the following code.
+
+public class Test {
+  public static void main(String[] args) {
+    int n = 2;
+    xMethod(n);
+           
+    System.out.println(""n is "" + n);
+  }
+
+  void xMethod(int n) {
+    n++;
+  }
+}",The code has a compile error because xMethod does not return a value,The code has a compile error because xMethod is not declared static,The code prints n is 2,The code prints n is 3,,,B,,0,0
+121,All Java applications must have a method ______,public static Main(String[] args),public static Main(String args[]),public static void main(String[] args),None of the above,,,C,,0,0
+122,A variable defined inside a method is referred to as _____,a global variable,a method variable,a block variable,a local variable,,,D,,0,0
+123,"有以下方法的定义,请选择该方法的返回类型
+ReturnType method(byte x, double y) {
+
+return (short)x/y*2;
+
+}",byte,short,int,double,,,D,,0,0
+124,Which of the following statements are correct?,"char[][] charArray = {'a', 'b'};","char[2][2] charArray = {{'a', 'b'}, {'c', 'd'}};","char[2][] charArray = {{'a', 'b'}, {'c', 'd'}};","char[][] charArray = {{'a', 'b'}, {'c', 'd'}};",,,D,,0,0
+125,"Suppose a method p has the following heading:
+public static int[] p()
+What return statement may be used in p()?
+",return 1;,"return {1, 2, 3};","return int[]{1, 2, 3};","return new int[]{1, 2, 3};",,,D,,0,0
+126,"If you declare an array double[] list = {3.4, 2.0, 3.5, 5.5}, the highest index in array list is ________",0,3,4,5,,,B,,0,0
+127,"for-each loop) Analyze the following code:
+
+public class Test {
+  public static void main(String[] args) {
+    double[] x = {2.5, 3, 4};
+    for (double value: x)
+      System.out.print(value + "" "");
+  }
+}","The program displays 2.5, 3, 4",The program displays 2.5 3 4,The program displays 2.5 3.0 4.0,"The program displays 2.5, 3.0 4.0
+",,,C,,0,0
+130,"有关类Demo,哪句描述是正确的? (          )
+     public class Demo extends Base{ 
+     private int count; 
+     public Demo(){ 
+       System.out.println(""A Demo object has been created""); 
+     } 
+     protected void addOne() {count++; } 
+     }","当创建一个Demo类的实例对象时,count的值为0","当创建一个Demo类的实例对象时,count的值是不确定的.
+","超类对象中可以包含改变count 值的方法.
+",Demo的子类对象可以访问count.,,,A,,0,0
+131,以下说法错误的是【   】,Applet小应用程序不可以独立运行,一个JAVA源程序可以没有public修饰的类,在一个JAVA源程序中可以定义多个类,一个java源程序可以有多个public修饰的类,,,D,,0,0
+133,以下哪个类能正确编译?【    】,"class a{
+   abstract void disp();
+ }
+","abstract class a{
+   void disp(){
+   System.out.println(""welcome to Beijing!""); 
+} }
+","class a{
+  abstract  void disp(){
+   System.out.println(""welcome to Beijing!""); 
+} }
+","abstract class a{
+  final abstract void disp();
+}
+",,,B,,0,0
+134,已知在一个类中能正确使用命令:import hr.tech.Wage.以下说法不正确的是【    】,Wage是类名,在Wage类中声明包的命令是package hr.tech,hr.tech.Wage是包名,"不使用import hr.tech.Wage语句,也可使用new hr.tech.Wage()的方式产生对象",,,C,,0,0
+135,"要想定义一个不能被实例化的抽象类,在类定义中必须加上修饰符(  ).
+",final,public,private,abstract,,,D,,0,0
+136,"下述说法中,错误的是","Java中,方法的重载是指多个方法可以共享同一个名字","Java中,用abstract修饰的类称为抽象类,它不能实例化","Java中,接口不包含方法实现","Java中,构造方法可以有返回值",,,D,,0,0
+137,下面哪个函数不是public void example(){...}的重载函数【    】,public void example( int m){...},public int example(){...},public void example(float f){...},"public int example ( int m, float f){...}",,,B,,0,0
+138,下列哪一种叙述是正确的( ),abstract修饰符可修饰字段、方法和类,抽象方法的body部分必须用一对大括号{ }包住,"声明抽象方法,大括号可有可无",声明抽象方法不可写出大括号,,,D,,0,0
+140,"为AB类的一个无形式参数无返回值的方法method书写方法头,使得使用类名AB作为前缀就可以调用它,该方法头的形式为(      ).",static  void  method( ),public  void  method( ),final  void  method( ),abstract  void  method( ),,,A,,0,0
+141,"如果类中的成员变量只能被同一包访问,则使用如下哪个约束符【    】",private,public,protected,缺省约束符,,,D,,0,0
+142,"类Test1定义如下:
+1.public class Test1{
+2. public float aMethod(float a,float b){ }
+3. 
+4.} 
+将以下哪种方法插入行3是不合法的.( )","public float aMethod(float a, float b,float c){ }","public float aMethod(float c,float d){ }","public int aMethod(int a, int b){ }","private float aMethod(int a,int b,int c){ }",,,B,,0,0
+143,"关于以下说法,描述错误的是【    】","在JAVA应用程序中main方法里,不能直接使用非静态变量",有abstract修饰的类能够直接实例化,"一个非抽象类实现一个接口,在该类中必须重写该接口中所有的方法",this和super这两个特殊变量只能用在非静态方法中,,,B,,0,0
+145,"关于被私有访问控制符private修饰的成员变量,以下说法正确的是",可以被三种类所引用:该类自身、与它在同一个包中的其他类、在其他包中的该类的子类,可以被两种类访问和引用:该类本身、该类的所有子类,只能被该类自身所访问和修改,只能被同一个包中的类访问,,,C,,0,0
+146,"关于被保护访问控制符protected修饰的成员变量,以下说法正确的是",可以被三种类所引用:该类自身、与它在同一个包中的其他类、在其他包中的该类的子类,可以被两种类访问和引用:该类本身、该类的所有子类,只能被该类自身所访问和修改,只能被同一个包中的类访问,,,A,,0,0
+147,"给出下面的代码段
+public class Base{
+int w, x, y ,z;
+public Base(int a,int b)
+  {  x=a; y=b;  }
+public Base(int a, int b, int c, int d){
+________________
+w=d;    z=c;
+} }
+在代码说明________处写入如下哪一个代码是正确的?【    】
+",a=x; b=y;,"x=a, y=b;","super(a,b)","this(a,b)",,,D,,0,0
+148,不允许作为类及类成员的访问控制符的是(      ).,public,private,static,protected,,,C,,0,0
+149,Which of the following statements are true?,Constructors cannot have a visibility modifier,"Constructors can be marked public and protected, but not private",Constructors can only have a primitive return type,Constructors are not inherited,,,D,,0,0
+154,Which of the following statements are NOT true?,A method in an interface must not have a body,A class may extend one other class plus at most one interface,A class may extends at most one other class plus implement many interfaces,An class accesses an interface via the keyword implements,,,B,,0,0
+156,Which of the following declares an abstract method in an abstract Java class?,public abstract method();,public abstract void method();,public void abstract Method();,public abstract void method() {},,,B,,0,0
+157,Which of the following class definitions defines a legal abstract class?,class A { abstract void unfinished() { } },class A { abstract void unfinished(); },abstract class A { abstract void unfinished(); },public class abstract A { abstract void unfinished(); },,,C,,0,0
+158,Which of the following are not true.,A static method may be invoked before even a single instance of the class is constructed,A static method cannot access non-static methods of the class,Abstract modifier can appear before a class or a method but not before a variable,final modifier can appear before a class or a variable but not before a method,,,D,,0,0
+161,"What will happen when you attempt to compile and run the following code.
+
+public class Pvf{
+
+static boolean Paddy;
+public static void main(String argv[]){
+        System.out.println(Paddy);
+        }
+
+}",Compile time error,compilation and output of false,compilation and output of true,compilation and output of null,,,B,,0,0
+162,"What will be the result of attempting to compile and run the following code? 
+
+abstract class MineBase { 
+abstract void amethod(); 
+static int i;
+}
+public class Mine extends MineBase { 
+public static void main(String argv[]){
+ int[] ar=new int[5]; 
+for(i=0;i < ar.length;i++) 
+System.out.println(ar[i]);
+ }}",a sequence of 5 0's will be printed,Error: ar is used before it is initialized,Error Mine must be declared abstract,IndexOutOfBoundes Error,,,C,,0,0
+163,"What modifier should you use on the members of a class so that they are not accessible to another class in a different package, but are accessible to any subclasses in any package?",public,private,protected,Use the default modifier,,,C,,0,0
+167,"What gets displayed on the screen when the following program is compiled and run. Select the one correct answer. 
+
+protected class example {
+ public static void main(String args[]) {
+  String test = ""abc"";
+  test = test + test;
+  System.out.println(test);
+ }
+}",The class does not compile because the top level class cannot be protected,"The program prints ""abc""","The program prints ""abcabc""","The program does not compile because statement ""test = test + test"" is illegal",,,A,,0,0
+168,Variables that are shared by every instances of a class are __________.,public variables,private variables,instance variables,class variables,,,D,,0,0
+169,"To make a variable defined in a class accessible only to methods defined in the classes in same package, which of the following keyword should be used. Select the one correct answer",By using the keyword private before the variable,By using the keyword protected before the variable,By using the keyword public before the variable,The variable should not be preceded by any of the above mentioned keywords,,,D,,0,0
+170,Test类中合法的构造方法是,test() { },Test() { },void Test() { },private final Test() { },,,B,,0,0
+171,Select the one most appropriate answer. A top level class without any modifier is accessible to,any class,any class within the same package,any class within the same file,any subclass of this class,,,B,,0,0
+176,"Given:
+1. // insert code here
+2. class StatTest {
+3. public static void main(String[] args) {
+4. System.out.println(Integer.MAX_VALUE);
+5. }
+6. }
+Which, inserted independently at line 1, compiles?",import static java.lang;,import static java.lang.Integer;,import static java.lang.Integer.*;,import static java.lang.Integer.*_VALUE;,,,C,,0,0
+179,"Given the following code
+public class Sytch{
+int x=2000;
+public static void main(String argv[]){
+        System.out.println(""Ms ""+argv[1]+""Please pay $""+x);
+        }
+
+}
+What will happen if you attempt to compile and run this code with the command line 
+java Sytch Jones Diggle",Compilation and output of Ms Diggle Please pay $2000,Compile time error,Compilation and output of Ms Jones Please pay $2000,Compilation but runtime error,,,B,,0,0
+181,"Given the declaration Circle x = new Circle(), which of the following statement is most accurate.",x contains an int value,x contains an object of the Circle type,x contains a reference to a Circle object,You can assign an int value to x,,,C,,0,0
+183,"Analyze the following code:
+public class Test {
+  public static void main(String args[]) {
+    NClass nc = new NClass();
+    nc.t = nc.t++;
+  }
+}
+class NClass {
+  int t;
+  private NClass() {
+  }
+}",The program has a compilation error because the NClass class has a private constructor,The program does not compile because the parameter list of the main method is wrong,"The program compiles, but has a runtime error because t has no initial value",The program compiles and runs fine,,,A,,0,0
+184,"Analyze the following code:
+public class Test {
+  private int t;
+  public static void main(String[] args) {
+    int x;
+    System.out.println(t);
+  }
+}",The variable t is not initialized and therefore causes errors,The variable t is private and therefore cannot be accessed in the main method,t is non-static and it cannot be referenced in a static context in the main method,The variable x is not initialized and therefore causes errors,,,C,,0,0
+185,"Analyze the following code:
+
+class Circle {
+  private double radius;
+  
+  public Circle(double radius) {
+    radius = radius;
+  }
+}",The program has a compilation error because it does not have a main method,"The program will compile, but you cannot create an object of Circle with a specified radius. The object will always have radius 0",The program has a compilation error because you cannot assign radius to radius,The program does not compile because Circle does not have a default constructor,,,B,,0,0
+187,A top level class may have only the following access modifier. Select the one correct answer,friendly,private,protected,public,,,D,,0,0
+188,"8、 给出下面的代码段
+public class Base{
+int x, y;
+static int z;
+public Base(int a,int b)
+  {  x=a; y=b;  }
+}
+以下代码错误的是?【    】","Base b=new Base();    
+b.z=10;
+","Base b=new Base(1,2); 
+b.z=10;
+",Base.z=10;,"Base b=new Base(1,2);
+b.x=2;
+",,,A,,0,0
+189,"6、 已知如下类说明
+public class Test {
+private float f = 1.0;
+int m = 12;
+static int n=1;
+public static void main(String arg[]) {
+Test t = new Test();
+____________________________.
+} }
+在空格处如下哪个使用是错误的?【    】
+",t.f,this.m,t.m,n,,,B,,0,0
+192,"To prevent a class from being instantiated, ____________",don't use any modifiers on the constructor,use the public modifier on the constructor,use the private modifier on the constructor,use the static modifier on the constructor,,,C,,0,0
+193,"public class Base{
+int x;
+static int z;
+public Base()
+  {  z++;(1)}
+Public static void main(String[] args){
+   int y;
+   Base b=new Base();
+   System.out.print(Base.z);(20)   System.out.print(x);(3)
+   System.out.print(y);(4)
+}
+}
+会出错的语句是【    】
+",(1),(2),(3),(4),,,C,,0,0
+194,"在Java中,能实现多重继承效果的方式是(         )",内部类,适配器,接口,同步,,,C,,0,0
+199,Which of the following statements are true?,A method cannot be overloaded to be less public in a child class,To be overridden a method only needs the same name and parameter types,"To be overridden a method must have the same name, parameter and return types","An overridden method must have the same name, parameter names and parameter types",,,C,,0,0
+203,Which of the following classes cannot be extended?,class A { },class A {   private A();},final class A { },class A {   protected A();},,,C,,0,0
+206,"What will happen when you attempt to compile and run the following code?
+
+class Base{
+Base(){
+        System.out.println(""Base"");
+        }
+}
+
+public class Checket extends Base{
+public static void main(String argv[]){
+        Checket c = new Checket();
+        super();
+        }
+
+Checket(){
+        System.out.println(""Checket"");  
+        }       
+}",Compile time error,Checket followed by Base,Base followed by Checket,runtime error,,,A,,0,0
+207,"What will happen when you attempt to compile and run the following code
+
+class Base{
+    public void Base(){
+ System.out.println(""Base"");
+    }
+}
+public class In extends Base{
+    public static void main(String argv[]){
+ In i=new In();
+    }
+}",Compile time error Base is a keyword,Compilation and no output at runtime,Output of Base,Runtime error Base has no valid constructor,,,B,,0,0
+208,"What will happen when you attempt to compile and run the following code 
+
+class Base{    
+private void amethod(int iBase){
+System.out.println(""Base.amethod"");    }}
+class Over extends Base{   
+ public static void main(String argv[]){ 
+Over o = new Over(); 
+int iBase=0;
+ o.amethod(iBase);  
+  }    
+public void amethod(int iOver){ 
+System.out.println(""Over.amethod"");   
+ }}",Compile time error complaining that Base.amethod is private,Runtime error complaining that Base.amethod is private,"Output of ""Base.amethod""","Output of ""Over.amethod""",,,D,,0,0
+209,"What will happen when you attempt to compile and run the following class?
+
+class Base{
+Base(int i){
+    System.out.println(""Base"");
+    }
+}
+class Severn extends Base{
+public static void main(String argv[]){
+        Severn s = new Severn();
+    }
+void Severn(){
+         System.out.println(""Severn"");
+    }
+}","Compilation and output of the string ""Severn"" at runtime","Compile time error
+",Compilation and no output at runtime,"Compilation and output of the string ""Base""",,,B,,0,0
+211,"Suppose you create a class Cylinder to be a subclass of Circle. Analyze the following code:
+
+class Cylinder extends Circle {
+  double length;
+  
+  Cylinder(double radius) {
+     Circle(radius);
+  }
+}","The program compiles fine, but you cannot create an instance of Cylinder because the constructor does not specify the length of the cylinder",The program has a compile error because you attempted to invoke the Circle class's constructor illegally,"The program compiles fine, but it has a runtime error because of invoking the Circle class's constructor illegally",The program compiles and run fine,,,B,,0,0
+212,Object-oriented programming allows you to derive new classes from existing classes. This is called ________,encapsulation,inheritance,abstraction,generalization,,,B,,0,0
+213,下面说法正确的是?,"一个子类可以有多个父类,一个父类也可以有多个子类","一个子类可以有多个父类,但一个父类只可以有一个子类","一个子类可以有一个父类,但一个父类可以有多个子类
+",上述说法都不对,,,C,,0,0
+214,Inheritance means _______,that data fields should be declared private,that a class can extend another class,that a variable of supertype can refer to a subtype object,that a class can contain another class,,,B,,0,0
+215,"Given:
+public abstract interface Frobnicate { public void twiddle(String s); }
+Which is a correct class?","public abstract class Frob implements Frobnicate {
+public abstract void twiddle(String s) { }
+}",public abstract class Frob implements Frobnicate { },"public class Frob extends Frobnicate {
+public void twiddle(Integer i) { }
+}","public class Frob implements Frobnicate {
+public void twiddle(Integer i) { }
+}",,,B,,0,0
+216,"Given:
+class Clidder {
+private final void flipper() { System.out.println(""Clidder""); }
+}
+public class Clidlet extends Clidder {
+public final void flipper() { System.out.println(""Clidlet""); }
+public static void main(String [] args) {
+new Clidlet().flipper();
+} }
+What is the result?",Clidlet,Clidder,"Clidder
+Clidlet","Clidlet
+Clidder",,,A,,0,0
+217,"Given:
+3. class Building {
+4. Building() { System.out.print(""b ""); }
+5. Building(String name) {
+6. this(); System.out.print(""bn "" + name);
+7. }
+8. }
+9. public class House extends Building {
+10. House() { System.out.print(""h ""); }
+11. House(String name) {
+12. this(); System.out.print(""hn "" + name);
+13. }
+14. public static void main(String[] args) { new House(""x ""); }
+15. }
+What is the result?",h hn x,hn x h,b h hn x,b hn x h,,,C,,0,0
+219,"Given:
+1. public class Electronic implements Device
+2.{ public void doIt() { } }
+3. abstract class Phone1 extends Electronic { }
+5. abstract class Phone2 extends Electronic
+6.{ public void doIt(int x) { } }
+7. class Phone3 extends Electronic implements Device
+8.{ public void doStuff() { } }
+9. interface Device { public void doIt(); }
+What is the result?",Compilation succeeds,Compilation fails with an error on line 1,Compilation fails with an error on line 3,Compilation fails with an error on line 5,,,A,,0,0
+220,"Given:
+1. public class Blip {
+2. protected int blipvert(int x) { return 0; }
+3. }
+4. class Vert extends Blip {
+5. // insert code here
+6. }
+Which method, inserted independently at line 5, will compile?",private int blipvert(int x) { return 0; },protected long blipvert(int x) { return 0; },public int blipvert(int x) { return 0; },public long blipvert(int x) { return 0; },,,C,,0,0
+221,"Given:
+1. public abstract class Shape {
+2. private int x;
+3. private int y;
+4. public abstract void draw();
+5. public void setAnchor(int x, int y) {
+6. this.x = x;
+7. this.y = y;
+8. }
+9. }
+Which  class use the Shape class correctly?",public class Circle implements Shape {private int radius; },public abstract class Circle extends Shape { private int radius; },public class Circle extends Shape { private int radius; public void draw(); },public abstract class Circle implements Shape { private int radius; public void draw(); },,,B,,0,0
+222,"Given the following code how could you invoke the Base constructor that will print out the string ""base constructor""; 
+class Base{   
+ Base(int i){
+ System.out.println(""base constructor"");    }    
+Base(){    }
+}
+public class Sup extends Base{    
+public static void main(String argv[]){ 
+Sup s= new Sup(); 
+//One    
+}    
+Sup()    { 
+//Two    
+}    
+public void derived()    {
+ //Three   
+ }}",On the line After //One put Base(10);,On the line After //One put super(10);,On the line After //Two put super(10);,On the line After //Three put super(10);,,,C,,0,0
+223,"Analyze the following code:
+
+public class Test { 
+  public static void main(String[] args) {
+    B b = new B();
+    b.m(5);
+    System.out.println(""i is "" + b.i);
+  }
+}
+
+class A {
+  int i;
+
+  public void m(int i) {
+    this.i = i;
+  }
+}
+
+class B extends A {
+  public void m(String s) {
+  }
+}","The program has a compilation error, because m is overridden with a different signature in B","The program has a compilation error, because b.m(5) cannot be invoked since the method m(int) is hidden in B","The program has a runtime error on b.i, because i is not accessible from b",The method m is not overridden in B. B inherits the method m from A and defines an overloaded method m in B,,,D,,0,0
+224,一个JAVA类最多可以继承的父类个数为【    】个,1,2,3,多个,,,A,,0,0
+225,"给出下面的代码段
+class b 
+{  int n=1;
+  void disp(){ System.out.print (n); }
+}
+class c extends b
+{  int n=2;
+  void disp(){
+     super.disp();     System.out.print(super.n);     System.out.print(n);
+  }
+ public static void main(String[] args) 
+ {  (new c()).disp();
+ } };
+运行结果哪项是正确的？【    】",112,222,111,221,,,A,,0,0
+226,"在 Java 中,所有类的根类是(            )",java.lang.Object,java.lang.Class,java.applet.Applet,java.awt.Frame,,,A,,0,0
+227,以下哪项是接口的正确定义?,"interface B
+
+{ void print() { } ;}","abstract interface B
+{ void print() ;}","abstract interface B extends A1,A2 //A1、A2为已定义的接口
+
+{ abstract void print(){ };}","interface B
+
+{ void print();}",,,D,,0,0
+228,"下面是People和Child类的定义和构造方法，每个构造方法都输出编号。在执行new Child(""mike"")的时候都有哪些构造方法被顺序调用？请选择输出结果 ( )
+class People {
+String name;
+public People() { System.out.print(1); }
+public People(String name) {
+System.out.print(2);
+this.name = name;
+}
+}
+
+class Child extends People {
+People father;
+public Child(String name) {
+System.out.print(3);
+this.name = name;
+father = new People(name + "":F"");
+}
+public Child(){ System.out.print(4); }
+}",312,32,13,132,,,D,,0,0
+229,"出下面的代码__ _______ __。
+class Person{
+String name,department;
+public void printValue(){
+System.out.println(“name is”+name);
+}
+}
+public class Teacher extends Person{
+int salary;
+public void printValue(){
+_______________________
+System.out.println(“salary is”+ salary);
+}
+}
+下面的哪个表达式可以加入到Teacher类的printValue()方法中。______",printValue();,"this.printValue();
+",person.printValue();,"super.printValue();
+",,,D,,0,0
+230," 有如下代码：
+//A.java
+class A {
+int x;
+public A(int x){
+  this.x=x;}
+}
+//B.java
+class B extends A{
+String name;
+public B(String name){
+x=10;
+   this.name=name;
+}
+public static void main(String[] args){
+    B b=new B(""tom"");
+    System.out.println(b.name +b.x);
+}
+}
+以下说法正确的是【    】","编译B通过,运行B,输出:tom10;","编译B通过,运行B失败,因为b.name +b.x中字符串不能与整型相加","编译B失败,因为b.name +b.x中字符串不能与整型相加","编译B失败,因为A中没有无参构造函数",,,D,,0,0
+231,"看下面一段程序： 
+　　class Aclass{ 
+　　　void go(){ 
+　　　　System.out.println(""Aclass"");
+　　　} 
+　　} 
+　　public class Bclass extends Aclass{ 
+　　　void go{ 
+　　　　System.out.println(""Bclass""); 
+　　　} 
+　　public static void main(String args[]){ 
+　　　Aclass a=new Aclass(); 
+　　　Aclass a1=new Bclass(); 
+　　a.go(); 
+　　a1.go(); 
+　　} 
+以上程序运行结果是：","Aclass 
+ Aclass 
+","Aclass 
+ Bclass","Bclass 
+ Aclass","Bclass 
+ Bclass",,,B,,0,0
+233,"What is the output of the following code?
+
+public class Test {
+  public static void main(String[] args) {
+    new Person().printPerson();
+    new Student().printPerson();
+  }
+}
+
+class Student extends Person {
+  public String getInfo() {
+    return ""Student"";
+  }
+}
+
+class Person {
+  public String getInfo() {
+    return ""Person"";
+  }
+  
+  public void printPerson() {
+    System.out.println(getInfo());
+  }
+}",Person Person,Person Student,Stduent Student,Student Person,,,B,,0,0
+234,Polymorphism means ___________,that data fields should be declared private,that a class can extend another class,that a variable of supertype can refer to a subtype object,that a class can contain another class,,,C,,0,0
+235,"In implementing two classes Employee and Manager, such that each Manager is an Employee, what should be the relationship between these classes. Select the one correct answer",Employee should be the base class of Manager class,Manager should be the base class of Employee class,Manager class should include the Employee class as a data member,Employee class should include Manager class as a data member,,,A,,0,0
+236,"Given:
+3. public class Tenor extends Singer {
+4. public static String sing() { return ""fa""; }
+5. public static void main(String[] args) {
+6. Tenor t = new Tenor();
+7. Singer s = new Tenor();
+8. System.out.println(t.sing() + "" "" + s.sing());
+9. }
+10. }
+11. class Singer { public static String sing() { return ""la""; } }
+What is the result?",fa fa,fa la,la la,Compilation fails,,,B,,0,0
+238,"Given:
+1. class Foo {
+2. public int a = 3;
+3. public void addFive() { a += 5; System.out.print(""f ""); }
+4. }
+5. class Bar extends Foo {
+6. public int a = 8;
+7. public void addFive() { this.a += 5; System.out.print(""b "" ); }
+8. }
+Invoked with: Foo f = new Bar(); f.addFive(); System.out.println(f.a);
+What is the result?",b 3,b 8,b 13,f 3,,,A,,0,0
+240,"A派生出子类B,B派生出子类C,并且在Java源代码中有如下声明:
+
+1. A a0=new A();
+2. A a1 =new B();
+3. A a2=new C();
+问以下哪个说法是正确的? 
+","只有第1行能通过编译
+","第1、2行能通过编译,但第3行编译出错
+","第1、2、3行能通过编译,但第2、3行运行时出错
+","第1行、第2行和第3行的声明都是正确的
+",,,D,,0,0
+243,"public class test{         
+public static string output='';         
+public static void        
+foo(inti){         
+try {         
+if(i==1){         
+throw new exception();         
+}         
+output +='1';         
+}          
+catch(exception e){         
+output+='2';         
+return;         
+}         
+finally{         
+output+='3';         
+}         
+output+='4';         
+}         
+public static void main(string args[]){         
+foo(0);         
+foo(1);         
+24)         
+}         
+}         
+what is the value of output at line 24?",1234,13423,1324,234,,,B,,0,0
+244,"1.public class Test{
+2.public static void aMethod() throws Exception{
+3.try{
+4.throw newException();
+5.}finally{
+6.System.out.println(""finally"");
+7.}
+8.}
+9.public static void main(String args[]){
+10.try{
+11.aMethod();
+12.}catch(Exception e){
+13.System.out.println(""exception"");
+14.}
+15.System.out.println(""finished"");
+16.}
+17.}
+What istheresult?",finally,exception       finished,finally   exception finished,Compilation fails,,,C,,0,0
+245,Which statement is true?,catch(X x) can catch subclasses of X.,The Error class is a RuntimeException.,Any statement that can throw an Error must be enclosed in a try block.,Any statement that can throw an Exception must been closed in a try block.,Any statement that can throw a RuntimeException must been closed in a try block.,,A,,0,0
+246,"1.public class X{        
+2.public static void main(String[] args){        
+3.try{        
+4.badMethod();        
+5.System.out.print(""A"");        
+6.}        
+7.catch(Exception ex){        
+8.System.out.print(""B"");        
+9.}       
+10.finally{        
+11.System.out.print(""C"");        
+12.}        
+13.System.out.print(""D"");        
+14.}        
+15.public static void badMethod(){}        
+17.}
+What is the result?
+",AC,BD,ACD,ABCD,Compilation fails.,,C,,0,0
+247,"1.public class X{        
+2.public static void main(String[] args){        
+3.try{        
+4.badMethod();        
+5.System.out.print(""A"");        
+6.}        
+7.catch(Exception ex){        
+8.System.out.print(""B"");        
+9.}       
+10.finally{        
+11.System.out.print(""C"");        
+12.}        
+13.System.out.print(""D"");        
+14.}        
+15.public static void badMethod(){throw new RuntimeException();}        
+17.}
+What is the result?
+",AB,BC,ABC,BCD,Compilation fails.,,D,,0,0
+253,"Given:        
+1.public class foo{        
+2.public static void main(string[] args)        
+3.try{return;}        
+4.finally{system.out.printIn(""Finally"");}        
+5.}       
+ 6.)         
+What is the result?",The program runs and prints nothing.,"The program runs and prints""Finally""","The code compiles,but an exception is thrown at runtime.",The code will not compile because the catch block is missing.,,,B,,0,0
+254,Which statement is true?,The Error class is a untimeException.,No exceptions are subclasses of Error.,Any statement that may throw an Error must be enclosed in a try block.,Any statement that may throw an Exception must be enclosed in a try block.,Any statement that may thro a runtimeException must be enclosed in a try block.,,D,,0,0
+256,An instance of _________ describes the errors caused by your program and external circumstances. These errors can be caught and handled by your program.,RuntimeException,Exception,Error,Throwable,NumberFormatException,,B,,0,0
+257,"下列代码将抛出____________________
+intnumber=Integer.MAX_VALUE+1;",RuntimeException,Exception,Error,Throwable,no Exception,,E,,0,0
+258,"What exception type does the following program throw?
+publicclassTest{
+public static void main(String[] args) {
+System.out.println(1 / 0);
+}
+}",ArithmeticException,ArrayIndexOutOfBoundsException,StringIndexOutOfBoundsException,ClassCastException,No exception,,A,,0,0
+262,一个方法必须申明要抛出__________.,unchecked exceptions,checked exceptions,Error,RuntimeException,,,B,,0,0
+263,"Analyze the following code:
+classTest{
+public static void main(String[] args)
+throws MyException {
+System.out.println(""Welcome to Java"");
+}
+}
+
+classMyExceptionextendsError{
+}","You should not declare a class that extends Error, because Error raises a fatal error that terminates the program.",You cannot declare an exception in the main method.,"You declared an exception in the main method, but you did not throw it.",The program has a compilation error.,,,A,,0,0
+264,"Analyze the following code:
+classTest{
+public static void main(String[] args) {
+try {
+String s = ""5.6"";
+Integer.parseInt(s); // Cause a NumberFormatException
+int i = 0;
+int y = 2 / i;
+}
+catch (Exception ex) {
+System.out.println(""NumberFormatException"");
+}
+catch (RuntimeException ex) {
+System.out.println(""RuntimeException"");
+}
+}
+}",The program displays NumberFormatException.,The program displays RuntimeException.,The program displays NumberFormatException followed by RuntimeException.,The program has a compilation error.,,,D,,0,0
+265,"Analyze the following code:
+classTest{
+public static void main(String[] args) {
+try {
+String s = ""5.6"";
+Integer.parseInt(s); // Cause a NumberFormatException
+int i = 0;
+int y = 2 / i;
+            System.out.println(""Welcome to Java"");
+}
+catch (Exception ex) {
+System.out.println(""NumberFormatException"");
+}
+}
+}",An exception is raised due to Integer.parseInt(s);,An exception is raised due to 2 / i;,The program has a compilation error.,The program compiles and runs without exceptions.,,,A,,0,0
+266,"What is displayed on the console when running the following program?
+classTest{
+public static void main(String[] args) {
+try {
+method();
+System.out.println(""After the method call"");
+}
+catch (NumberFormatException ex) {
+System.out.println(""NumberFormatException"");
+}
+catch (RuntimeException ex) {
+System.out.println(""RuntimeException"");
+}
+}
+
+static void method() {
+String s = ""5.6"";
+Integer.parseInt(s); // Cause a NumberFormatException
+int i = 0;
+int y = 2 / i;
+System.out.println(""Welcome to Java"");
+}
+}",The program displays NumberFormatException.,The program displays NumberFormatException followed by After the method call.,The program displays NumberFormatException followed by RuntimeException.,The program has a compilation error.,The program displays RuntimeException.,,A,,0,0
+268,"下列代码运行将出现什么结果?
+
+classTest{
+public static void main (String[] args) {
+try {
+System.out.println(""Welcome to Java"");
+            int i = 0;
+            int y = 2 / i;
+            System.out.println(""Welcome to HTML"");
+}
+finally {
+System.out.println(""The finally clause is executed"");
+}
+}
+}","Welcome to Java, then an error message.","Welcome to Java followed by The finally clause is executed in the next line, then an error message.","The program displays three lines: Welcome to Java, Welcome to HTML, The finally clause is executed, then an error message.",None of the above.,,,B,,0,0
+270,"What is displayed on the console when running the following program?
+
+class Test {
+  public static void main(String[] args) {
+    try {
+      System.out.println(""Welcome to Java"");
+      int i = 0;
+      int y = 2/i;
+      System.out.println(""Welcome to Java"");
+    }
+    catch (RuntimeException ex) {
+      System.out.println(""Welcome to Java"");
+    }
+    finally {
+      System.out.println(""End of the block"");
+    }
+   
+    System.out.println(""End of the block"");
+  }
+}
+
+","The program displays Welcome to Java three times followed by End of the block.
+
+",The program displays Welcome to Java two times followed by End of the block.,The program displays Welcome to Java two times followed by End of the block two times.,You cannot catch RuntimeException errors.,,,C,,0,0
+271,"What is displayed on the console when running the following program?
+
+class Test {
+  public static void main(String[] args) {
+    try {
+      System.out.println(""Welcome to Java"");
+      int i = 0;
+      int y = 2/i;
+      System.out.println(""Welcome to Java"");
+    }
+    finally {
+      System.out.println(""End of the block"");
+    }
+   
+    System.out.println(""End of the block"");
+  }
+}
+
+","The program displays Welcome to Java three times followed by End of the block.
+
+",The program displays Welcome to Java two times followed by End of the block.,The program displays Welcome to Java two times followed by End of the block two times.,"The program displays Welcome to Java and End of the block, and then terminates because of an unhandled exception.",,,D,,0,0
+272,"Which of the following is not an advantage of Java exception handling?
+
+",Java separates exception handling from normal processing tasks.,Exception handling improves performance.,Exception handling makes it possible for the caller's caller to handle the exception.,Exception handling simplifies programming because the error-reporting and error-handling code can be placed at the catch block.,,,B,,0,0
+273,"Analyze the following code:
+
+class Test {
+  public static void main(String[] args) {
+    try {
+      int zero = 0;
+      int y = 2/zero;
+      try {
+        String s = ""5.6"";
+        Integer.parseInt(s); // Cause a NumberFormatException
+      }
+      catch(Exception e) {
+      }
+    }
+    catch(RuntimeException e) {
+      System.out.println(e);
+    }
+  }
+}
+
+
+","A try-catch block cannot be embedded inside another try-catch block.
+
+","A good programming practice is to avoid nesting try-catch blocks, because nesting makes programs difficult to read. You can rewrite the program using only one try-catch block.",The program has a compilation error because Exception appears before RuntimeException.,None of the above.,,,B,,0,0
+275,Which is not a method of the class InputStream?,int read(byte[]),void flush(),void close(),int available(),,,B,,0,0
+276,"FilterOutputStream is the parent class for BufferedOutputStream, DataOutputStream and PrintStream. Which classes are valid argument for the constructor of a FilterOutputStream?",InputStream,OutputStream,File,RandomAccessFile,StreamTokenizer,,B,,0,0
+277,True or False: Readers have methods that can read and return floats and doubles.,Ture,FALSE,,,,,B,,0,0
+278,"代码如下:     
+1.//PointX        
+2.public class foo{        
+3.public static void main(String[] args) throws Exception{        4.jave.io.PrintWriterout=new jave.io.PrintWriter(        
+5.new         jave.io.OutputStreamWriter(System.out),true);      
+  6.out.println(""Hello"");        
+7.}        
+8.} 
+在第一行要求为_____________,上述程序代码才能编译成功.",No statement is required.,import jave.io.*;,include java.io.*;,import jave.io.PrintWriter;,include java.io.PrintWriter;,,A,,0,0
+279,"Which gets the name of the parent directory file""file.txt""?","String name=File.getParentName(""file.txt"");","String name=(new File(""file.txt"")).getParent();","String name=(new File(""file.txt"")).getParentName();","String name=(new File(""file.txt"")).getParentFile();","Directory dir=(new File(""file.txt"")).getParentDir();   String name=dir.getName();",,B,,0,0
+280,Which can be used to encode charS for output?,Java.io.OutputStream.,Java.io.OutputStreamWriter.,Java.io.EncodeOutputStream.,Java.io.EncodeWriter.,Java.io.BufferedOutputStream.,,B,,0,0
+281,"Which determines if""prefs""is a directory and exists on the file system?","Boolean exists=Directory.exists(""prefs"");","Boolean exists=(new File(""prefs"")).isDir();","Boolean exists=(new Directory(""prefs"")).exists();","Boolean exists=(new File(""prefs"")).isDirectory();","Boolean exists=true;       Try{      Directory d=new Directory(""prefs"");
+      }      catch(FileNotFoundException e){
+      exists=false;
+      }
+",,D,,0,0
+282,哪一个将构造一个DataOutputStream?,"New dataInputStream(""in.txt"");","New dataInputStream(new file(""in.txt""));","New dataInputStream(new writer(""in.txt""));","New dataInputStream(new FileWriter(""in.txt""));","New dataInputStream(new InputStream(""in.txt""));","New dataInputStream(new FileInputStream(""in.txt""));",F,,0,0
+283,Which of the following statements CANNOT create an instance of File on Window for the file c:\temp.txt?,"new File(""c:\temp.txt"")","new File(""c:\\\temp.txt"")","new File(""c:/temp.txt"")","new File(""c://temp.txt"")",,,A,,0,0
+284,Which of the following statements are true?,"If a file (e.g., c:\temp.txt) does not exist, new File(""c:\\temp.txt"") returns null.","If a directory (e.g., c:\liang) does not exist, new File(""c:\liang"") returns null.","If a file (e.g., c:\temp.txt) does not exist, new File(""c:\\temp.txt"") creates a new file named c:\temp.txt.","If a directory (e.g., c:\liang) does not exist, new File(""c:\liang"") creates a new directory named c:\liang.",None of the above.,,E,,0,0
+285,"下面哪个类包含方法,能够检查一个文件是否存在?",File,PrintWriter,Scanner,System,,,A,,0,0
+286,下面哪个类用来从一个文本文件中读取数据信息?,File,PrintWriter,Scanner,System,,,C,,0,0
+287,Which method can be used to write data?,close,print,exist,rename,,,B,,0,0
+288,下面哪个方法可以从一个文件中读取一行内容?,next,nextLine,nextInt,nextDouble,,,B,,0,0
+289,Which method can be used to create an input object for file temp.txt?,"new Scanner(""temp.txt"")",new Scanner(temp.txt),"new Scanner(new File(""temp.txt""))","new Scanner(File(""temp.txt""))",,,C,,0,0
+290,"Suppose you enter 34.3 57.8 789, then press the ENTER key. Analyze the following code.
+Scannerinput=newScanner(System.in);
+intv1=input.nextInt();
+intv2=input.nextInt();
+Stringline=input.nextLine();","After the last statement is executed, intValue is 34.",The program has a runtime error because 34.3 is not an integer.,"After the last statement is executed, line contains characters '7', '8', '9', '\n'.","After the last statement is executed, line contains characters '7', '8', '9'.",,,B,,0,0
+291,"Suppose you enter 34.3, the ENTER key, 57.8, the ENTER key. Analyze the following code.
+Scannerinput=newScanner(System.in);
+doublev1=input.nextDouble();
+doublev2=input.nextDouble();
+Stringline=input.nextLine();","After the last statement is executed, intValue is 34.",The program has a runtime error because 34.3 is not an integer.,"After the last statement is executed, line contains characters '7', '8', '9', '\n'.","After the last statement is executed, line contains characters '7 ', '8 ', '9?.","After the last statement is executed, line contains character '\n '.",,E,,0,0
+292,下面哪个方法可以用来获取一个使用InputStream访问的文件的字节数?,length(),available(),size(),getSize(),,,B,,0,0
+293,"为了在一个已经存在的文件后面追加内容,使用_____________来为文件out.dat创建一个FileOutptStream.","new FileOutputStream(""out.dat"")","new FileOutputStream(""out.dat"", false)","new FileOutputStream(""out.dat"", true)","new FileOutputStream(true, ""out.dat"")",,,C,,0,0
+294,"What does the following code do?
+FileInputStreamfis=newFileInputStream(""test.dat"");",It creates a new file named test.dat if it does not exist and opens the file so you can write to it.,It creates a new file named test.dat if it does not exist and opens the file so you can write to it and read from it.,It creates a new file named test.dat regardless of whether it exists or not and opens the file so you can write to it.,It creates a new file named test.dat regardless of whether it exists or not and opens the file so you can write to it and read from it.,It creates a FileInputStream for test.dat if test.dat exists.,,E,,0,0
+295,Which type of exception occurs when creating a DataInputStream for a nonexistent file?,FileNotExist,FileNotExistException,FileNotFound,FileNotFoundException,,,D,,0,0
+296,Which of the following statements is correct to create a DataOutputStream to write to a file named out.dat?,"DataOutputStream outfile = new DataOutputStream(new File(""out.dat""));","DataOutputStream outfile = new DataOutputStream(new FileOutputStream(""out.dat""));","DataOutputStream outfile = new DataOutputStream(FileOutputStream(""out.dat""));","DataOutputStream outfile = new DataOutputStream(""out.dat"");",,,B,,0,0
+297,"下面程序运行完毕后,多少字节将被写入文件t.dat?
+importjava.io.*;
+publicclassTest{
+public static void main(String[] args) throws IOException {
+DataOutputStream output = new DataOutputStream(
+new FileOutputStream(""t.dat""));
+output.writeShort(1234);
+output.writeShort(5678);
+output.close();
+}
+}",2 bytes.,4 bytes.,8 bytes.,16 bytes.,,,B,,0,0
+298,"下列程序代码执行完毕后,多少个字节被写入到文件t.dat中?
+
+import java.io.*;
+
+public class Test {
+  public static void main(String[] args) throws IOException {
+    DataOutputStream output = new DataOutputStream(
+      new FileOutputStream(""t.dat""));
+    output.writeChars(""ABCD"");
+    output.close();
+  }
+}
+
+",2 bytes.,4 bytes.,8 bytes.,12 bytes.,16 bytes.,,C,,0,0
+299,"为了创建一个文件,可以使用________________.",FileOutputStream,FileWriter,RandomAccessFile,All of the above.,,,D,,0,0
+300,Which of the following is the legal mode for creating a new RandomAccessFile stream?,"""w""",'r',"""rw""","""rwx""",,,C,,0,0
+301,下面哪个I/O类可以用来添加或修改一个文件的内容?,RandomAccessFile(),OutputStream(),DataOutputStream(),None of the above,,,A,,0,0
+302,"在下面的空格中,选择合适的代码. Comparable______ c = new Date();",<String>,<?>,<Date>,<E>,,,C,,0,0
+303,假设List<String> list = new ArrayList<String>. 下面哪个代码是正确的?,"list.add(""Red"");",list.add(new Integer(100));,list.add(new java.util.Date());,list.add(new ArrayList());,,,A,,0,0
+304,"To declare a class named A with a generic type, use",public class A<E> { ... },"ublic class A<E, F> { ... }",public class A(E) { ... },"public class A(E, F) { ... }",,,A,,0,0
+305,"To declare an interface named A with a generic type, use",public interface A<E> { ... },"public interface A<E, F> { ... }",public interface A(E) { ... },"public interface A(E, F) { ... }",,,A,,0,0
+306,"To create a generic type bounded by Number, use",<E extends Number>,<E extends Object>,<E>,<E extends Integer>,,,A,,0,0
+307,Which of the following declarations use raw type?,ArrayList<Object> list = new ArrayList<Object>();,ArrayList<String> list = new ArrayList<String>();,ArrayList<Integer> list = new ArrayList<Integer>();,ArrayList list = new ArrayList();,,,D,,0,0
+317,"Which contains objects without ordering, duplication, or any particular lookup/retrieval mechanism?",Map,Set,List,Collection,Enumeration,,B,,0,0
+318,"You need to store elements in a collection that guarantees that no duplicates are stored and all elements can be accessed in natural order.Which interface provides that
+capability?",Java.util.Map.,Java.util.Set.,Java.util.List.,Java.util.StoredSet.,Java.util.StoredMap.,Java.util.Collection.,D,,0,0
+319,Which of the data types below does not allow duplicates?,Set,List,Vector,Stack,LinkedList,,A,,0,0
+323,"Suppose set s1 is [1, 2, 5] and set s2 is [2, 3, 6]. After s1.addAll(s2), s1 is __________.","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]",[2],,,B,,0,0
+324,"假设set s1为[1,2,5],set s2为[2,3,6],那么执行s1.addAll(s2)后,s2为:__________.","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]","[2, 3, 6]",[2],,D,,0,0
+325,"假设set s1 为[1,2,5], s2为[2,3,6],执行s1.removeAll(s2)后,s1为:________________?","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]",[2],,,C,,0,0
+327,"下列代码的输出结果为:_______________________.
+    LinkedHashSet<String> set1 = new LinkedHashSet<String>();
+    set1.add(""New York"");
+    LinkedHashSet<String> set2 = (LinkedHashSet<String>)(set1.clone());
+    set1.add(""Atlanta"");
+    set2.add(""Dallas"");
+    System.out.println(set2);",[New York],"[New York, Atlanta]","[New York, Atlanta, Dallas]","[New York, Dallas]",,,D,,0,0
+329,下面哪个方法将组合set s1与s2?,s1.union(s2),s1 + s2,s1.addAll(s2),s1.add(s2),,,C,,0,0
+330,Which of the following is correct to perform the set intersection of two sets s1 and s2.,s1.intersect(s2),s1.join(s2),s1.retainAll(s2),s1.intersection(s2),,,C,,0,0
+333,"Suppose list1 is an ArrayList and list2 is a LinkedList. Both contains 1 million double values. Analyze the following code:
+
+A:
+for (int i = 0; i < list1.size(); i++)
+  sum += list1.get(i);
+
+B:
+for (int i = 0; i < list2.size(); i++)
+  sum += list2.get(i);",Code fragment A runs faster than code fragment B.,Code fragment B runs faster than code fragment A.,Code fragment A runs as fast as code fragment B.,,,,A,,0,0
+338,"假设list  list1为[1,2,3],list2为[2,3,6], 执行list1.addAll(list2)后,list2为__________.","[1, 2, 2, 3, 5, 6]","[1, 2, 3, 5, 6]","[1, 5]",[2],"[2, 3, 6]",,E,,0,0
+344,"Analyze the following code:
+
+public class Test implements Runnable {
+  public static void main(String[] args) {
+    Thread t = new Thread(this);
+    t.start();
+  }
+
+  public void run() {
+    System.out.println(""test"");
+  }
+}     ()
+
+","The program does not compile because this cannot be referenced in a static method.
+
+","The program compiles fine, but it does not print anything because t does not invoke the run() method.",The program compiles and runs fine and displays test on the console.,None of the above.,,,A,,0,0
+346,"Analyze the following code:
+
+public abstract class Test implements Runnable {
+  public void doSomething() {
+  };
+}
+The correct answer is ()",The program will not compile because it does not implement the run() method.,The program will not compile because it does not contain abstract methods.,The program compiles fine.,None of the above.,,,C,,0,0
+348,"Analyze the following code:
+
+public class Test implements Runnable {
+  public static void main(String[] args) {
+    Test t = new Test();
+  }
+
+  public Test() {
+    Thread t = new Thread(this);
+    t.start();
+  }
+
+  public void run() {
+    System.out.println(""test"");
+  }
+}
+the correct answer is ()",The program has a compilation error because t is defined in both the main() method and the constructor Test().,"The program compiles fine, but it does not run because you cannot use the keyword this in the constructor.",The program compiles and runs and displays nothing.,The program compiles and runs and displays test.,,,D,,0,0
+350,Which of the following expressions must be true if you create a thread using Thread = new Thread(object)? (),object instanceof Thread,object instanceof Frame,object instanceof Applet,object instanceof Runnable,,,D,,0,0
+351,You can use the()method to force one thread to wait for another thread to finish.,sleep(long milliseconds),yield(),stop(),join(),,,D,,0,0
+354,以下哪个方法会抛出InterruptedException异常?(),run(),sleep(long),start(),yield(),,,B,,0,0
+355,"Given the following code, which set of code can be used to replace the comment so that the program displays time to the console every second?()
+
+import java.applet.*;
+import java.util.*;
+
+public class Test extends Applet implements Runnable {
+  public void init() {
+    Thread t = new Thread(this);
+    t.start();
+  }
+
+  public void run() {
+    for(; ;) {
+      //display time every second
+      System.out.println(new Date().toString());
+    }
+  }
+}",try { sleep(1000); } catch(InterruptedException e) { },try { t.sleep(1000); } catch(InterruptedException e) { },try { Thread.sleep(1000); } catch(RuntimeException e) { },try { Thread.sleep(1000); } catch(InterruptedException e) { },,,D,,0,0
+357,以下语句哪个用于创建线程池?(),ExecutorService executor = Executors.newCachedThreadPool();,ExecutorService executor = Executors.newCachedThreadPool(1);,ExecutorService executor = Executors.newCachedThreadPool(2);,ExecutorService executor = Executors.newCachedThreadPool(3);,,,A,,0,0
+358,The keyword to synchronize methods in Java is (),synchronize,synchronizing,synchronized,Synchronized,,,C,,0,0
+361,"有如下代码:
+Class a extends Thread{
+Public void run{
+  For(int i=1;i<100;i++){System.out.println(i);}
+}}
+能正确启动a中run方法的是()",a.run();,"a a1=new a();
+a1.run();","a a1=new a();
+a1.start();
+","a a1=new a();
+Thread t=new Thread(a);
+a.start();",,,C,,0,0
+362,"程序如下:
+public class Borley extends Thread
+{
+public static void main(String[] argv)
+{
+        Borley b = new Borley();
+        b.start();
+    }
+public void run()
+{      
+        System.out.println(""Running"");
+    }
+}
+下面描述正确的是().",通过编译和运行但是没有任何输出,"通过编译,运行后输出""Running""","编译出错,没有线程可供运行","编译出错,没有权限使用Thread",,,B,,0,0
+365,"1、 阅读下面程序
+      Public class Test2 _______{
+        Public static void main(String[] args){
+            Thread t=new Test2();
+            t.start();
+       }
+       Public void run(){
+         System.out.println(""How are you.);
+       }
+}
+在程序下划线处填入正确选项是()",implements Thread,extemds Runnable,implements runnable,extends Thead,,,D,,0,0
+366,"Class Test implements Runnable {
+   Public int run( ) {
+      int i = 0;
+      While (true) {
+          i++;
+          System.out.println (""i=""+i);
+      }
+   }
+}
+上述代码的编译结果是()",程序通过编译并且run ()方法可以正常输出递增的i值,"程序通过编译,调用run ()方法将不显示任何输出","程序不能通过编译,因为while的循环控制条件不能为""true""","程序不能通过编译,因为run ()方法的返回值类型不是void给出下面的代码段",,,D,,0,0
+376,"To add two nodes node1 and node2 into a pane, use ________.","pane.add(node1, node2);","pane.getChildren().addAll(node1, node2);","pane.addAll(node1, node2);","pane.getChildren().add(node1, node2);",,,B,,0,0
+377,"To remove two nodes node1 and node2 from a pane, use ________.","pane.getChildren().removeAll(node1, node2);","pane.getChildren().remove(node1, node2);","pane.removeAll(node1, node2);","pane.remove(node1, node2);",,,A,,0,0
+378,"To add a node to the the first row and second column in a GridPane pane, use ________.","pane.add(node, 0, 1);","pane.getChildren().add(node, 0, 1);","pane.add(node, 1, 0);","pane.getChildren().add(node, 1, 2);","pane.add(node, 1, 2);",,C,,0,0
+379,"To place two nodes node1 and node2 in a HBox p, use ________.","p.addAll(node1, node2);","p.add(node1, node2);","p.getChildren().addAll(node1, node2);","p.getChildren().add(node1, node2);",,,D,,0,0
+380,"Analyze the following code:
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
+
+public class Test extends Application {
+ @Override // Override the start method in the Application class
+ public void start(Stage primaryStage) {
+  HBox pane = new HBox(5);
+  Circle circle = new Circle(50, 200, 200); 
+  pane.getChildren().addAll(circle);
+
+  circle.setCenterX(100);
+  circle.setCenterY(100);
+  circle.setRadius(50);
+  pane.getChildren().addAll(circle);
+
+  // Create a scene and place it in the stage
+  Scene scene = new Scene(pane);
+  primaryStage.setTitle(""Test""); // Set the stage title
+  primaryStage.setScene(scene); // Place the scene in the stage
+  primaryStage.show(); // Display the stage
+ }
+ 
+ /**
+ * The main method is only needed for the IDE with limited
+ * JavaFX support. Not needed for running from the command line.
+ */
+ public static void main(String[] args) {
+  launch(args);
+ }
+}
+",The program runs fine and displays one circle.,The program runs fine and displays two circles.,The program has a runtime error since the circle is added to a pane twice.,The program has a compile error since the circle is added to a pane twice.,,,D,,0,0
+381,A JavaFX action event handler is an instance of _______,ActionEvent,Action,EventHandler,EventHandler<ActionEvent>,,,D,,0,0
+382,A JavaFX action event handler contains a method ________.,public void actionPerformed(ActionEvent e),public void actionPerformed(Event e),public void handle(ActionEvent e),public void handle(Event e),,,C,,0,0
+383,A JavaFX event handler for event type T is an instance of _______.,ActionEvent,Action,EventHandler,EventHandler<T>,,,D,,0,0
+384,"To register a source for an action event with a handler, use __________.",source.addAction(handler),source.setOnAction(handler),source.addOnAction(handler),source.setActionHandler(handler),,,B,,0,0
+385,Suppose A is an inner class in Test. A is compiled into a file named _________.,A.class,Test$A.class,A$Test.class,Test&A.class,,,B,,0,0
+386,Suppose A is an anonymous inner class in Test. A is compiled into a file named _________.,A.class,Test$A.class,A$Test.class,Test&1.class,Test$1.class,,E,,0,0
+387,"Fill in the code below in the underline:
+public class Test {
+  public static void main(String[] args) {
+    Test test = new Test();
+    test.setAction(______________________________);
+  }
+  public void setAction(T1 t) {
+    t.m();
+  }
+}
+interface T1 {
+  public void m();
+}","() -> System.out.print(""Action 1! "")","(e) -> System.out.print(""Action 1! "")","System.out.print(""Action 1! "")","(e) -> {System.out.print(""Action 1! "")}",,,A,,0,0
+388,"To handle the mouse click event on a pane p, register the handler with p using ______.",p.setOnMouseClicked(handler);,p.setOnMouseDragged(handler);,p.setOnMouseReleased(handler);,p.setOnMousePressed(handler);,,,A,,0,0
+389,"Fill in the code in the underlined location to display the mouse point location when the mouse is pressed in the pane.
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    Pane pane = new Pane();
+    ______________________________________
+    
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""Test""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for running from the command line.
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
+}","pane.setOnMouseClicked((e) -> System.out.println(e.getX() + "", "" + e.getY()));","pane.setOnMouseReleased(e -> {System.out.println(e.getX() + "", "" + e.getY())});","pane.setOnMousePressed(e -> System.out.println(e.getX() + "", "" + e.getY()));","pane.setOnMouseDragged((e) -> System.out.println(e.getX() + "", "" + e.getY()));",,,C,,0,0
+390,"To handle the key pressed event on a pane p, register the handler with p using ______.",p.setOnKeyClicked(handler);,p.setOnKeyTyped(handler);,p.setOnKeyReleased(handler);,p.setOnKeyPressed(handler);,,,D,,0,0
+391,"Analyze the following code. 
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    // Create a button and place it in the scene
+    Button btOK = new Button(""OK"");
+    btOK.setOnAction(e -> System.out.println(""OK 1""));
+    btOK.setOnAction(e -> System.out.println(""OK 2""));
+
+    Scene scene = new Scene(btOK, 200, 250);
+    primaryStage.setTitle(""MyJavaFX""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for running from the command line.
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
+}","When clicking the button, the program displays OK1 OK2.","When clicking the button, the program displays OK1.","When clicking the button, the program displays OK2.","The program has a compile error, because the setOnAction method is invoked twice. 
+ Check Answer for Question 17",,,C,,0,0
+392,"Suppose the following program displays a pane in the stage. What is the output if the user presses the key for letter B? 
+
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+// import javafx classes omitted
+public class Test1 extends Application {
+  @Override
+  public void start(Stage primaryStage) {
+    // Code to create and display pane omitted
+    Pane pane = new Pane();
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""MyJavaFX""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+    
+    pane.requestFocus();
+    pane.setOnKeyPressed(e ->
+      System.out.print(""Key pressed "" + e.getCode() + "" ""));
+    pane.setOnKeyTyped(e ->
+      System.out.println(""Key typed "" + e.getCode()));
+  }
+  
+  /**
+   * The main method is only needed for the IDE with limited
+   * JavaFX support.",Key pressed B Key typed UNDEFINED,Key pressed B Key typed,Key typed UNDEFINED,Key pressed B,,,A,,0,0
+393,Which of the following methods is not defined in the Animation class?,pause(),play(),stop(),resume(),,,D,,0,0
+394,__________ is not a subclass of Animation.,PathTransition,FadeTransition,Timeline,Duration,,,D,,0,0
+395,"Fill in the code to display the key pressed in the text.which is wrong?
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    Pane pane = new Pane();
+    Text text = new Text(20, 20, ""Welcome"");
+    pane.getChildren().add(text);
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""Test""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+    
+    text.setFocusTraversable(true);
+    text.setOnKeyPressed(_______________________);
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for running from the command line.
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
+}",() -> text.setText(e.getText()),(e) -> text.setText(e.getText()),e -> text.setText(e.getText()),e -> {text.setText(e.getText());},,,A,,0,0
+396,"To create a label with the specified text, use __________.
+",new Labelled();,new Label();,new Labelled(text);,new Label(text);,,,D,,0,0
+397,"To set a red color for the text in the label lbl, use _________.
+",lbl.setFill(Color.red);,lbl.setTextFill(Color.red);,lbl.setFill(Color.RED);,lbl.setTextFill(Color.RED);,,,A,,0,0
+398,"Analyze the following code:
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    HBox pane = new HBox(5);
+    Image usIcon = new Image(""http://www.cs.armstrong.edu/liang/image/usIcon.gif"");
+    Button bt1 = new Button(""Button1"", new ImageView(usIcon));
+    Button bt2 = new Button(""Button2"", new ImageView(usIcon));
+    pane.getChildren().addAll(bt1, bt2);
+    
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""Test""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for runnin",Two buttons displayed with the same icon.,Only bt2 displays the icon and bt1 does not display the icon.,Only bt1 displays the icon and bt2 does not display the icon.,Two buttons displayed with different icons.,,,D,,0,0
+399,"Analyze the following code:
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class Test extends Application {
+  @Override // Override the start method in the Application class
+  public void start(Stage primaryStage) {
+    StackPane pane = new StackPane();
+    Button bt1 = new Button(""Java"");
+    Button bt2 = new Button(""Java"");
+    Button bt3 = new Button(""Java"");
+    Button bt4 = new Button(""Java"");
+    pane.getChildren().addAll(bt1, bt2, bt3, bt4);
+    
+    Scene scene = new Scene(pane, 200, 250);
+    primaryStage.setTitle(""Test""); // Set the stage title
+    primaryStage.setScene(scene); // Place the scene in the stage
+    primaryStage.show(); // Display the stage
+  }
+
+  /**
+   * The main method is only needed for the IDE with limited JavaFX
+   * support. Not needed for running from the command line.
+   */
+  public static void main(String[] args) {
+    launch(args);
+  }
+}","One button is displayed with the text ""Java"".","Two buttons are displayed with the same text ""Java"".","Three buttons are displayed with the same text ""Java"".","Four buttons are displayed with the same text ""Java"".",,,A,,0,0
+400,"_________ checks whether the CheckBox chk is selected.
+",chk.getSelected(),chk.selected(),chk.isSelected(),chk.select(),,,C,,0,0
+401,"_________ checks whether the RadioButton rb is selected.
+",rb.getSelected(),rb.selected(),rb.isSelected(),rb.select(),,,C,,0,0
+403,The method __________ gets the contents of the text field tf.,tf.getText(s),tf.getText(),tf.getString(),tf.findString(),,,B,,0,0
+404,The method __________ appends a string s into the text area ta.,ta.setText(s),ta.appendText(s),ta.append(s),ta.insertText(s),,,B,,0,0
+405,"To wrap a line in a text area ta, invoke ____________.",ta.setLineWrap(false),ta.setLineWrap(true),ta.WrapLine(),ta.setWrapText(true),,,D,,0,0
+406,"To wrap a line in a text area jta on words, invoke ____________.",jta.setWrapStyleWord(false),jta.setWrapStyleWord(true),jta.wrapStyleWord(),jta.wrapWord(),,,B,,0,0
+407,The statement for registering a listener for processing list view item change is ___________.,lv.getItems().addListener(e -> {processStatements});,lv.addListener(e -> {processStatements});,lv.getSelectionModel().selectedItemProperty().addListener(e -> {processStatements});,lv.getSelectionModel().addListener(e -> {processStatements});,,,C,,0,0
