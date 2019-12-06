@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import pandas as pd
 import numpy as np
 import string
@@ -40,6 +42,9 @@ if "question_index" not in list(data.columns):
     data["question_index"] = 0
 else:
     question_index = data["question_index"][0]
+
+if question_index == len(data):
+    question_index = 0
 
 # display questions repeatedly
 for i in range(question_index, len(data)):

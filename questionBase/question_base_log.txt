@@ -1,0 +1,7 @@
+question254:
+Traceback (most recent call last):
+  File "question_base.py", line 90, in <module>
+    list(filter(lambda x: answers.iloc[i][0] == x[1], choices_mapping.items()))[0][0] + ".",
+IndexError: list index out of range
+
+
