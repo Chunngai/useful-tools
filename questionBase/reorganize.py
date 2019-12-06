@@ -31,7 +31,7 @@ def reorganize(file_name):
 
     # print(len(reorganized_data))
 
-    reorganized_data.to_csv(file_name + " (reorganized).csv")
+    reorganized_data.to_csv(file_name + " (reorganized).csv", index=False)
 
 
 if __name__ == '__main__':
