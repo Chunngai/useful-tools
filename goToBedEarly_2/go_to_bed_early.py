@@ -1,6 +1,3 @@
-#!usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os
 import signal
 import time
@@ -25,7 +22,10 @@ def go_to_bed_early(software_list_):
 
 
 if __name__ == '__main__':
-    software_list = ["chrome", "notepad-plus-plus", "intellij-idea-community", "clion", "pycharm-community"]
+    software_list = ["chrome", "notepad-plus-plus", "intellij-idea-community", "clion", "pycharm-community",
+                     "libreoffice", "atom"]
 
-    while check_time():
-        go_to_bed_early(software_list)
+    while True:
+        if check_time():
+            go_to_bed_early(software_list)
+        time.sleep(60)
