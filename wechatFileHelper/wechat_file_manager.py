@@ -4,6 +4,7 @@
 import itchat
 import sys
 import os
+import re
 
 
 def send_files(src_file_path):
@@ -29,18 +30,31 @@ def login():
 if __name__ == '__main__':
     # python3 wechat_file_manager.py -s src_file_path: send
     # python3 wechat_file_manager.py -r dest_file_path: download
-    if len(sys.argv) != 3:
-        print("invalid input! usage: python3 wechat_file_manager.py [mode] [file_path]")
-        exit(1)
-
-    if os.path.exists(sys.argv[2]):
-        if sys.argv[1] in ["-s", "--send"]:
+    if sys.argv[1] in ["-s", "--send"]:
+        try:
+            if os.path.exists(sys.argv[2]):
+                login()
+                send_files(sys.argv[2])
+            else:
+                raise FileNotFoundError()
+        except IndexError:
+            print("file path cannot be empty")
+            exit(1)
+        except FileNotFoundError:
+            print("file path does not exist")
+            exit(1)
+    elif sys.argv[1] in ["-r", "--receive"]:
+        try:
+            if os.path.exists(sys.argv[2]):
+                login()
+                receive_files(sys.argv[2])
+            else:
+                raise FileNotFoundError()
+        except IndexError:
             login()
-            send_files(sys.argv[2])
-        elif sys.argv[1] in ["-r", "--receive"]:
-            login()
-            receive_files(sys.argv[2])
-        else:
-            print("invalid mode!")
+            receive_files()
+        except FileNotFoundError:
+            print("file path does not exist")
+            exit(1)
     else:
-        print("invalid path!")
+        print("invalid mode")
