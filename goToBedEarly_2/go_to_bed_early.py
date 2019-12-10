@@ -1,6 +1,18 @@
 import os
 import signal
+import datetime
 import time
+
+
+def wait():
+    # get the current time
+    current_time = datetime.datetime.now()
+    # get the time when specified software should be closed
+    exe_time = (current_time + datetime.timedelta(days=1)).replace(hour=1, minute=0, second=0)
+
+    # wait for the execute time
+    sleep_time = (exe_time - current_time).seconds
+    time.sleep(sleep_time)
 
 
 def check_time():
@@ -24,6 +36,8 @@ def go_to_bed_early(software_list_):
 if __name__ == '__main__':
     software_list = ["chrome", "notepad-plus-plus", "intellij-idea-community", "clion", "pycharm-community",
                      "libreoffice", "atom"]
+
+    wait()
 
     while True:
         if check_time():
