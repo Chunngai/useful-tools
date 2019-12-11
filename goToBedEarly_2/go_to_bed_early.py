@@ -12,6 +12,12 @@ def wait():
 
     # wait for the execute time
     sleep_time = (exe_time - current_time).seconds
+
+    with open("/home/neko/Desktop/log.txt", "a") as f:
+        f.write(str(current_time) + "\n")
+        f.write(str(exe_time) + "\n")
+        f.write(sleep_time)
+
     time.sleep(sleep_time)
 
 
