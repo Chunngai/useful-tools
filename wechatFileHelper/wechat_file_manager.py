@@ -8,16 +8,23 @@ import re
 
 
 def send_files(src_file_path):
+    print("sending file {}".format(src_file_path))
+
     itchat.send_file(src_file_path, toUserName="filehelper")
+
+    print("done")
 
 
 def receive_files(dest_file_path="/home/neko/Downloads/"):
+    print("receiving files")
+
     if dest_file_path[-1] != "/":
         dest_file_path += "/"
 
     @itchat.msg_register(['Picture', 'Recording', 'Attachment', 'Video'])
     def download_files(msg):
         msg['Text'](dest_file_path + msg['FileName'])
+        print("received {}".format(msg['FileName']))
 
     itchat.run()
 
